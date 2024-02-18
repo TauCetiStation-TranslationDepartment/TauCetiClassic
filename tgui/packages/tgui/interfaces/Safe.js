@@ -12,8 +12,8 @@ export const Safe = (properties, context) => {
   } = data;
   return (
     <Window
-      width={730}
-      height={100}
+      width={625}
+      height={760}
       theme="ntos">
       <Window.Content>
         <Box className="Safe__engraving">
