@@ -91,7 +91,7 @@ const Dialer = (properties, context) => {
           {[dialButton(50), dialButton(10), dialButton(1)]}
         </Table.Cell>
         <Table.Cell className="Safe__dialer-number">
-            {dial}
+          {dial}
         </Table.Cell>
         <Table.Cell textAlign="center">
           {[dialButton(1, true), dialButton(10, true), dialButton(50, true)]}
