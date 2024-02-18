@@ -86,7 +86,7 @@ const Dialer = (properties, context) => {
       </Box>
       <Box
         className="Safe__dialer-right"
-        position="absolute" right="3px">
+        position="absolute" right="5px">
         {[dialButton(1, true), dialButton(10, true), dialButton(50, true)]}
       </Box>
       <Box className="Safe__dialer-number">
