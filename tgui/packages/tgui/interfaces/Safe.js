@@ -73,31 +73,31 @@ const Dialer = (properties, context) => {
     );
   };
   return (
-    <Table>
-    <Table.Row>
-      <Table.Cell header textAlign="center" width="200px">Налево</Table.Cell>
-      <Table.Cell header textAlign="center">
-        <Button
-          disabled={locked}
-          icon={open ? "lock" : "lock-open"}
-          content={open ? "Закрыть" : "Открыть"}
-          onClick={() => act('open')}
-        />
-      </Table.Cell>
-      <Table.Cell header textAlign="center" width="200px">Направо</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell textAlign="center">
-        {[dialButton(50), dialButton(10), dialButton(1)]}
-      </Table.Cell>
-      <Table.Cell className="Safe__dialer-number">
-          {dial}
-      </Table.Cell>
-      <Table.Cell textAlign="center">
-        {[dialButton(1, true), dialButton(10, true), dialButton(50, true)]}
-      </Table.Cell>
-    </Table.Row>
-  </Table>
+ <Table>
+      <Table.Row>
+        <Table.Cell header textAlign="center" width="200px">Налево</Table.Cell>
+        <Table.Cell header textAlign="center">
+          <Button
+            disabled={locked}
+            icon={open ? "lock" : "lock-open"}
+            content={open ? "Закрыть" : "Открыть"}
+            onClick={() => act('open')}
+          />
+        </Table.Cell>
+        <Table.Cell header textAlign="center" width="200px">Направо</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell textAlign="center">
+          {[dialButton(50), dialButton(10), dialButton(1)]}
+        </Table.Cell>
+        <Table.Cell className="Safe__dialer-number">
+            {dial}
+        </Table.Cell>
+        <Table.Cell textAlign="center">
+          {[dialButton(1, true), dialButton(10, true), dialButton(50, true)]}
+        </Table.Cell>
+      </Table.Row>
+    </Table>
   );
 };
 
