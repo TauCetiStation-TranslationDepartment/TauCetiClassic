@@ -73,7 +73,7 @@ const Dialer = (properties, context) => {
     );
   };
   return (
- <Table>
+    <Table>
       <Table.Row>
         <Table.Cell header textAlign="center" width="200px">Налево</Table.Cell>
         <Table.Cell header textAlign="center">
@@ -139,14 +139,14 @@ const Help = (properties, context) => {
       className="Safe__help"
       title="Safe opening instructions (because you all keep forgetting)">
       <Box>
-        1. Поверните ручку сейфа влево до первой цифры.<br />
-        2. Поверните ручку сейфа вправо до второй цифры.<br />
-        3. Продолжайте повторять этот процесс для каждого числа.
-        каждый раз переворачивая налево и направо.<br />
-        4. Откройте сейф.
+        1. Turn the dial left to the first number.<br />
+        2. Turn the dial right to the second number.<br />
+        3. Continue repeating this process for each number,
+        switching between left and right each time.<br />
+        4. Open the safe.
       </Box>
       <Box bold>
-        Для полной блокировки, проверните ручку влево после закрытия .
+        To lock fully, turn the dial to the left after closing the safe.
       </Box>
     </Section>
   );
