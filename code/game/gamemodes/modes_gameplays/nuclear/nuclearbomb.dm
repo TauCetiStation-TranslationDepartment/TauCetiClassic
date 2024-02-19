@@ -6,7 +6,7 @@ var/global/bomb_set
 /obj/machinery/nuclearbomb
 	name = "Nuclear Fission Explosive"
 	cases = list("ядерная боеголовка", "ядерной боеголовки", "ядерной боеголовке", "ядерную боеголовку", "ядерной боеголовкой", "ядерной боеголовке")
-	desc = "Uh oh. RUN!!!!"
+	desc = "Ох... БЕЖИМ!!!!"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "nuclearbomb0"
 	density = TRUE
@@ -103,7 +103,7 @@ var/global/bomb_set
 						return FALSE
 					if(user.is_busy())
 						return FALSE
-					user.visible_message("[CASE(user, NOMINATIVE_CASE)] начинает что-то прорезать в [CASE(src, ACCUSATIVE_CASE)], будто [user.gender == MALE ? "он" : "она"] знает, что нужно делать.", "С [CASE(src, ABLATIVE_CASE)] вы начинаете прорезать первый слой...")
+					user.visible_message("[CASE(user, NOMINATIVE_CASE)] начинает что-то прорезать в [CASE(src, ACCUSATIVE_CASE)], будто [user.gender == MALE ? "он" : "она"] знает, что нужно делать.", "С [CASE(O, ABLATIVE_CASE)] вы начинаете прорезать первый слой...")
 
 					if(O.use_tool(src, user, SKILL_TASK_CHALLENGING, amount = 5, volume = 50))
 						user.visible_message("[CASE(user, NOMINATIVE_CASE)] заканчивает перерезать что-то в [CASE(src, DATIVE_CASE)].", "Вы прорезали первый слой.")
@@ -160,7 +160,7 @@ var/global/bomb_set
 /obj/machinery/nuclearbomb/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "NuclearBomb", [CASE(name, NOMINATIVE_CASE)])
+		ui = new(user, src, "NuclearBomb", C_CASE(src, NOMINATIVE_CASE))
 		ui.open()
 
 /obj/machinery/nuclearbomb/tgui_data(mob/user)
@@ -270,7 +270,7 @@ var/global/bomb_set
 		var/area/nuclearbombloc = get_area(loc)
 		announce_nuke.play(nuclearbombloc)
 		set_security_level("delta")
-		notify_ghosts("[CASE(name, NOMINATIVE_CASE)] была активирована!", source = src, action = NOTIFY_ORBIT, header = "Nuclear bomb")
+		notify_ghosts("[CASE(src, NOMINATIVE_CASE)] была активирована!", source = src, action = NOTIFY_ORBIT, header = "Nuclear bomb")
 		timing = TRUE
 	update_icon()
 
@@ -278,7 +278,7 @@ var/global/bomb_set
 	if(deployed)
 		if(timing)
 			return FALSE
-		to_chat(user, "<span class = 'red'>Вы закрываете несколько моделей, чтобы сделать [CASE(src, GENITIVE_CASE)] неразвернутой.</span>")
+		to_chat(user, "<span class = 'red'>Вы закрываете несколько панелей, чтобы сделать [CASE(src, ACCUSATIVE_CASE)] неразвернутой.</span>")
 		visible_message("<span class = 'red'>Анкерные болты возвращаются внутрь [CASE(src, GENITIVE_CASE)], таймер остановился.</span>")
 		deployed = FALSE
 		anchored = FALSE
@@ -303,7 +303,7 @@ var/global/bomb_set
 			to_chat(user, "<span class = 'red'>Бомба не может быть здесь расположена...</span>")
 			return FALSE
 
-		to_chat(user, "<span class = 'red'>Вы закрываете несколько моделей, чтобы сделать [CASE(src, GENITIVE_CASE)] развернутой.</span>")
+		to_chat(user, "<span class = 'red'>Вы закрываете несколько панелей, чтобы сделать [CASE(src, ACCUSATIVE_CASE)] развернутой.</span>")
 		visible_message("<span class = 'red'>С характерным щелчком, анкерные болты выскочили из [CASE(src, GENITIVE_CASE)] и прикрепили её к полу!</span>")
 		deployed = TRUE
 		anchored = TRUE

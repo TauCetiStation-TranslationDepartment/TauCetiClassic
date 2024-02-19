@@ -32,7 +32,7 @@ const NukeKeypad = (props, context) => {
                 fontSize="20px"
                 height="25px"
                 lineHeight={1.25}
-                disabled={code==="ERROR" && key!=="R" || !hasDisk || !deployed}
+                disabled={code==="ОШИБКА" && key!=="R" || !hasDisk || !deployed}
                 onClick={() => act('type', { digit: key })} />
             ))}
           </Grid.Column>
@@ -60,7 +60,7 @@ export const NuclearBomb = (props, context) => {
       width={237}
       height={400}>
       <Window.Content>
-        <Section title="Status" fill buttons={(
+        <Section title="Статус" fill buttons={(
           <Button
             color={deployed ? "green" : "red"}
             content={deployed ? "Развернута" : "Не развернута"}
@@ -87,13 +87,13 @@ export const NuclearBomb = (props, context) => {
             position="center">
             {code && (code) || (
               <Box textColor={authorized ? "green" : "red"}>
-                {authorized ? "ДОСТУП РАЗРЕШЁН" : hasDisk ? "ВВЕДИТЕ КОД" : deployed ? "ВСТАВЬТЕ ДИСК" : "РАЗВЕРНУТЬ"}
+                {authorized ? "ДОСТУП РАЗРЕШЁН" : hasDisk ? "ВВЕДИТЕ КОД" : deployed ? "ВСТАВЬТЕ ДИСК" : "ДИСК НЕ ВСТАВЛЕН"}
               </Box>)}
           </Box>
           <NukeKeypad />
           <br />
           <LabeledList>
-            <LabeledList.Item label="Осталось времени:">
+            <LabeledList.Item label="Осталось времени">
               <ProgressBar
                 value={timeLeft / timerMax}
                 ranges={{
@@ -101,7 +101,7 @@ export const NuclearBomb = (props, context) => {
                   average: [0.25, 0.65],
                   bad: [-Infinity, 0.25],
                 }}>
-                {timeLeft} seconds
+                {timeLeft} секунд
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item label="Регулятор таймера">
