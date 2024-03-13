@@ -1,5 +1,12 @@
 /turf
 	icon = 'icons/turf/floors.dmi'
+	
+	// base turf luminosity, works against byond native darkness
+	// most likely you shouldn't touch it
+	// currently direcly used only by starlight/environment lighting
+	// dynamic lighting subsystem uses lighting_object's for luminosity
+	luminosity = 0
+
 	var/turf/basetype = /turf/environment/space
 	var/can_deconstruct = FALSE
 
@@ -39,6 +46,19 @@
 
 	var/list/turf_decals
 
+	var/level_light_source = FALSE
+
+	var/tmp/lighting_corners_initialised = FALSE
+
+	///Our lighting object.
+	var/tmp/atom/movable/lighting_object/lighting_object
+	///Lighting Corner datums.
+	var/tmp/datum/lighting_corner/lighting_corner_NE
+	var/tmp/datum/lighting_corner/lighting_corner_SE
+	var/tmp/datum/lighting_corner/lighting_corner_SW
+	var/tmp/datum/lighting_corner/lighting_corner_NW
+
+	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
 
 /**
   * Turf Initialize
@@ -56,6 +76,9 @@
 
 	for(var/atom/movable/AM in src)
 		Entered(AM)
+
+	if(level_light_source)
+		ENABLE_LEVEL_LIGHTING(src)
 
 	if(light_power && light_range)
 		update_light()
@@ -319,11 +342,11 @@
 	// BYOND never deletes turfs, when you "delete" a turf, it actually morphs the turf into a new one.
 	// Running procs do NOT get stopped due to this.
 	var/old_opacity = opacity
-	var/old_dynamic_lighting = dynamic_lighting
-	var/old_force_lighting_update = force_lighting_update
-	var/old_affecting_lights = affecting_lights
 	var/old_lighting_object = lighting_object
-	var/old_corners = corners
+	var/old_lighting_corner_NE = lighting_corner_NE
+	var/old_lighting_corner_SE = lighting_corner_SE
+	var/old_lighting_corner_SW = lighting_corner_SW
+	var/old_lighting_corner_NW = lighting_corner_NW
 
 	var/old_basetype = basetype
 	var/old_flooded = flooded
@@ -400,22 +423,19 @@
 
 	queue_smooth_neighbors(W)
 
+	lighting_corner_NE = old_lighting_corner_NE
+	lighting_corner_SE = old_lighting_corner_SE
+	lighting_corner_SW = old_lighting_corner_SW
+	lighting_corner_NW = old_lighting_corner_NW
+
 	if(SSlighting.initialized)
 		recalc_atom_opacity()
 		lighting_object = old_lighting_object
-		affecting_lights = old_affecting_lights
-		corners = old_corners
-		if (force_lighting_update || old_force_lighting_update || old_opacity != opacity || dynamic_lighting != old_dynamic_lighting)
+
+		if (old_opacity != opacity)
 			reconsider_lights()
 
-		if (dynamic_lighting != old_dynamic_lighting)
-			if (IS_DYNAMIC_LIGHTING(src))
-				lighting_build_overlay()
-			else
-				lighting_clear_overlay()
-
-		for(var/turf/environment/space/S in RANGE_TURFS(1, src)) //RANGE_TURFS is in code\__HELPERS\game.dm
-			S.update_starlight()
+		recast_level_light()
 
 	if(F)
 		F.forceMove(src)
