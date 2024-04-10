@@ -1,7 +1,7 @@
 import { Fragment } from 'inferno';
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Box, Button, Icon, Section } from '../components';
+import { Box, Button, Icon, Section, Table } from '../components';
 import { Window } from "../layouts";
 
 export const Safe = (properties, context) => {
@@ -12,8 +12,8 @@ export const Safe = (properties, context) => {
   } = data;
   return (
     <Window
-      width={625}
-      height={760}
+      width={630}
+      height={975}
       theme="ntos">
       <Window.Content>
         <Box className="Safe__engraving">
@@ -64,7 +64,7 @@ const Dialer = (properties, context) => {
       <Button
         disabled={open || right && !locked}
         icon={"arrow-" + (right ? "right" : "left")}
-        content={(right ? "Right" : "Left") + " " + amount}
+        content={amount}
         iconPosition={right ? "right" : "left"}
         onClick={() => act(!right ? "turnright" : "turnleft", {
           num: amount,
@@ -73,26 +73,31 @@ const Dialer = (properties, context) => {
     );
   };
   return (
-    <Box className="Safe__dialer">
-      <Button
-        disabled={locked}
-        icon={open ? "lock" : "lock-open"}
-        content={open ? "Close" : "Open"}
-        mb="0.5rem"
-        onClick={() => act('open')}
-      /><br />
-      <Box position="absolute">
-        {[dialButton(50), dialButton(10), dialButton(1)]}
-      </Box>
-      <Box
-        className="Safe__dialer-right"
-        position="absolute" right="5px">
-        {[dialButton(1, true), dialButton(10, true), dialButton(50, true)]}
-      </Box>
-      <Box className="Safe__dialer-number">
-        {dial}
-      </Box>
-    </Box>
+    <Table>
+      <Table.Row>
+        <Table.Cell header textAlign="center" width="200px">Налево</Table.Cell>
+        <Table.Cell header textAlign="center">
+          <Button
+            disabled={locked}
+            icon={open ? "lock" : "lock-open"}
+            content={open ? "Закрыть" : "Открыть"}
+            onClick={() => act('open')}
+          />
+        </Table.Cell>
+        <Table.Cell header textAlign="center" width="200px">Направо</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell textAlign="center">
+          {[dialButton(50), dialButton(10), dialButton(1)]}
+        </Table.Cell>
+        <Table.Cell className="Safe__dialer-number">
+          {dial}
+        </Table.Cell>
+        <Table.Cell textAlign="center">
+          {[dialButton(1, true), dialButton(10, true), dialButton(50, true)]}
+        </Table.Cell>
+      </Table.Row>
+    </Table>
   );
 };
 
@@ -132,16 +137,19 @@ const Help = (properties, context) => {
   return (
     <Section
       className="Safe__help"
-      title="Safe opening instructions (because you all keep forgetting)">
+      title="Инструкция для открытия сейфа (ведь вы всегда забываете, как это делать...)">
       <Box>
-        1. Turn the dial left to the first number.<br />
-        2. Turn the dial right to the second number.<br />
-        3. Continue repeating this process for each number,
-        switching between left and right each time.<br />
-        4. Open the safe.
+        1. Поверните ручку сейфа влево до первой цифры.
+        <br />
+        2. Поверните ручку сейфа вправо до второй цифры.
+        <br />
+        3. Продолжайте повторять этот процесс для каждого числа, каждый раз
+        переворачивая налево и направо.
+        <br />
+        4. Откройте сейф.
       </Box>
       <Box bold>
-        To lock fully, turn the dial to the left after closing the safe.
+        Для полной блокировки, проверните ручку влево после закрытия ..
       </Box>
     </Section>
   );
