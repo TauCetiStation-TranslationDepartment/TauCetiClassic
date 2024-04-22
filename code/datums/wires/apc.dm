@@ -10,27 +10,25 @@ var/global/const/APC_WIRE_AI_CONTROL  = 8
 /datum/wires/apc/get_status()
 	var/obj/machinery/power/apc/A = holder
 	. += ..()
-	. += "[(A.locked ? "The APC is locked." : "The APC is unlocked.")]"
-	. += "[(A.shorted ? "The APCs power has been shorted." : "The APC is working properly!")]"
-	. += "[(A.aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on.")]"
+	. += "[(A.locked ? "Щиток заблокирован." : "Щиток разблокирован.")]"
+	. += "[(A.shorted ? "Щиток закоротило." : "Щиток работает нормально.")]"
+	. += "[(A.aidisabled ? "Индикатор удалённого доступа не горит." : "Индикатор удалённого доступа горит.")]"
 
 /datum/wires/apc/can_use()
 	var/obj/machinery/power/apc/A = holder
 	return A.wiresexposed
 
-/datum/wires/apc/update_cut(index, mended, mob/user)
+/datum/wires/apc/update_cut(index, mended)
 	var/obj/machinery/power/apc/A = holder
 
 	switch(index)
 		if(APC_WIRE_MAIN_POWER1, APC_WIRE_MAIN_POWER2)
 			if(!mended)
-				if(user)
-					A.shock(user, 50)
+				A.shock(usr, 50)
 				A.shorted = TRUE
 			else if(!is_index_cut(APC_WIRE_MAIN_POWER1) && !is_index_cut(APC_WIRE_MAIN_POWER2))
 				A.shorted = FALSE
-				if(user)
-					A.shock(user, 50)
+				A.shock(usr, 50)
 
 		if(APC_WIRE_AI_CONTROL)
 			if(!mended)
