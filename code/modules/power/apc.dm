@@ -428,7 +428,7 @@
 				return
 			if(user.is_busy(src))
 				return
-			to_chat(user, "Вы пытаетесь извлечь плату.") // lpeters - fixed grammar issues
+			to_chat(user, "Вы пытаетесь извлечь плату...") // lpeters - fixed grammar issues
 			if(W.use_tool(src, user, 50, volume = 50))
 				has_electronics = 0
 				area.poweralert(FALSE, src)
@@ -526,7 +526,7 @@
 		else if(opened != APC_COVER_CLOSED)
 			to_chat(user, "Закройте крышку [CASE(src, GENITIVE_CASE)].")
 		else if(wiresexposed)
-			to_chat(user, "Уложите провода.")
+			to_chat(user, "Закрутите крышку [CASE(src, GENITIVE_CASE)].")
 		else if(stat & (BROKEN|MAINT))
 			to_chat(user, "Ничего не происходит.")
 		else
@@ -539,9 +539,9 @@
 
 	else if(istype(W, /obj/item/weapon/card/emag) && !(emagged || malfhack)) // trying to unlock with an emag card
 		if(opened != APC_COVER_CLOSED)
-			to_chat(user, "Закройте крышку [CASE(src, GENITIVE_CASE)].")
+			to_chat(user, "Закройте крышку [CASE(src, GENITIVE_CASE)], перед тем как провести ID картой.")
 		else if(wiresexposed)
-			to_chat(user, "Уложите провода.")
+			to_chat(user, "Закрутите крышку [CASE(src, GENITIVE_CASE)].")
 		else if(stat & (BROKEN|MAINT))
 			to_chat(user, "Ничего не происходит.")
 		else
@@ -626,7 +626,7 @@
 			to_chat(user, "Перед починкой отключите и извлеките компоненты [CASE(src, GENITIVE_CASE)].")
 			return
 		if(user.is_busy()) return
-		to_chat(user, "Вы заменяете сломанный корпус [CASE(src, GENITIVE_CASE)].")
+		to_chat(user, "Вы заменяете сломанный корпус [CASE(src, GENITIVE_CASE)]...")
 		if(W.use_tool(src, user, 50, volume = 50))
 			user.visible_message(\
 				"<span class='warning'>[user.name] заменил сломанный корпус [CASE(src, GENITIVE_CASE)].</span>",\
