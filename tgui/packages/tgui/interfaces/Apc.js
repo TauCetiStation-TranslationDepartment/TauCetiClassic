@@ -24,7 +24,7 @@ const powerStatusMap = {
   1: {
     color: 'average',
     externalPowerText: 'Низкое напряжение в сети',
-    chargingText: 'Заряжается',
+    chargingText: 'Идёт зарядка...',
   },
   0: {
     color: 'bad',
@@ -182,7 +182,7 @@ const ApcContent = (props, context) => {
                 onClick={() => act('toggle_nightshift')} />
             )} />
           <LabeledList.Item
-            label="Режим освещения"
+            label="Текущий режим освещения"
             buttons={(
               <Button
                 icon="lightbulb-o"
