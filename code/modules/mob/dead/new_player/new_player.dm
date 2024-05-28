@@ -316,9 +316,9 @@
 		which_time_is_it = "<b>[mins]</b> минут."
 	if(hours)
 		if(hours == 1)
-			which_time_is_it = "<b>[hours]</b> час and [which_time_is_it]"
+			which_time_is_it = "<b>[hours]</b> час и [which_time_is_it]"
 		else
-			which_time_is_it = "<b>[hours]</b> часов and [which_time_is_it]"
+			which_time_is_it = "<b>[hours]</b> часов и [which_time_is_it]"
 
 	var/dat = "<div class='notice'>Длительность раунда: [which_time_is_it]</div>"
 
