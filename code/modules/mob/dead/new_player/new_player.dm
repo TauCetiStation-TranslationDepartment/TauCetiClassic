@@ -232,7 +232,7 @@
 	if (src != usr)
 		return 0
 	if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
-			to_chat(usr, "<span class='warning'>Раунд не начался, либо уже закончился.</span>")
+		to_chat(usr, "<span class='warning'>Раунд не начался, либо уже закончился.</span>")
 		return 0
 	if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
 		to_chat(usr, "<span class='notice'>Администрация заблокировала вход в игру!</span>")
@@ -320,7 +320,7 @@
 		else
 			which_time_is_it = "<b>[hours]</b> часов and [which_time_is_it]"
 
-	var/dat = "<div class='notice'>Длительность раундов: [which_time_is_it]</div>"
+	var/dat = "<div class='notice'>Длительность раунда: [which_time_is_it]</div>"
 
 	if(SSshuttle) // In case Nanotrasen decides reposess CentComm's shuttles.
 		switch(SSshuttle.direction)
@@ -340,7 +340,7 @@
 	if(!available_job_count)
 		dat += "<div class='notice red'>В данный момент, нет свободных вакансий! Приходите позже.</div>"
 	else
-		dat += "<div class='clearBoth'>Choose from the following open positions:</div>"
+		dat += "<div class='clearBoth'>Вам нужно сделать выбор, где вы будете работать:</div>"
 		var/list/categorizedJobs = list(
 			"Командование" = list(jobs = list(), titles = command_positions, color = "#aac1ee"),
 			"Представительство НТ" = list(jobs = list(), titles = centcom_positions, color = "#6c7391"),
