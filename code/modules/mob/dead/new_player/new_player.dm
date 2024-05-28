@@ -159,7 +159,7 @@
 
 	if(href_list["SelectedJob"])
 		if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-			to_chat(usr, "<span class='notice'>Администрация заблокировала вход в игру!</span>")
+			to_chat(usr, "<span class='notice'>Администрация отключила вступление в раунд!</span>")
 			return
 
 		if(client.prefs.species != HUMAN)
@@ -235,7 +235,7 @@
 		to_chat(usr, "<span class='warning'>Раунд не начался, либо уже закончился.</span>")
 		return 0
 	if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-		to_chat(usr, "<span class='notice'>Администрация заблокировала вход в игру!</span>")
+		to_chat(usr, "<span class='notice'>Администрация отключила вступление в раунд!</span>")
 		return 0
 	if(!IsJobAvailable(rank))
 		to_chat(usr, "<span class='notice'>В данный момент, роль [rank] отключена.</span>")
