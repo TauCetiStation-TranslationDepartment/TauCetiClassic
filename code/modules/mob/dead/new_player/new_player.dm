@@ -340,7 +340,7 @@
 	if(!available_job_count)
 		dat += "<div class='notice red'>В данный момент, нет свободных вакансий! Приходите позже.</div>"
 	else
-		dat += "<div class='clearBoth'>Вам нужно сделать выбор, где вы будете работать:</div>"
+		dat += "<div class='clearBoth'>Выберите желаемую вами профессию из этого списка:</div>"
 		var/list/categorizedJobs = list(
 			"Командование" = list(jobs = list(), titles = command_positions, color = "#aac1ee"),
 			"Представительство НТ" = list(jobs = list(), titles = centcom_positions, color = "#6c7391"),
