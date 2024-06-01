@@ -238,7 +238,7 @@
 		to_chat(usr, "<span class='notice'>Администрация отключила вступление в раунд!</span>")
 		return 0
 	if(!IsJobAvailable(rank))
-		to_chat(usr, "<span class='notice'>В данный момент, роль [rank] отключена.</span>")
+		to_chat(usr, "<span class='notice'>В данный момент, роль [rank] отключена. Пожалуйста попробуйте выбрать другую роль.</span>")
 		return 0
 
 	spawning = 1
