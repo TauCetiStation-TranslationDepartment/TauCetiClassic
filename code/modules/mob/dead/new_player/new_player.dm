@@ -325,7 +325,7 @@
 	if(SSshuttle) // In case Nanotrasen decides reposess CentComm's shuttles.
 		switch(SSshuttle.direction)
 			if(2) // Shuttle is going to centcomm, not recalled
-				dat += "<div class='notice red'>Экипаж станции провёл эвакуацию.</div><br>"
+				dat += "<div class='notice red'>Персонал станции был эвакуирован.</div><br>"
 			if(1)
 				if(SSshuttle.timeleft() < 300 && SSshuttle.alert == 0) // Emergency shuttle is past the point of no recall
 					dat += "<div class='notice red'>В настоящее время на станции активированы протоколы эвакуации персонала.</div><br>"
