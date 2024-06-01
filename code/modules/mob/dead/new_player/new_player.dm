@@ -328,7 +328,7 @@
 				dat += "<div class='notice red'>Экипаж станции провёл эвакуацию.</div><br>"
 			if(1)
 				if(SSshuttle.timeleft() < 300 && SSshuttle.alert == 0) // Emergency shuttle is past the point of no recall
-					dat += "<div class='notice red'>В данный момент, экипаж станции эвакуируется.</div><br>"
+					dat += "<div class='notice red'>В настоящее время на станции активированы протоколы эвакуации персонала.</div><br>"
 				else if(SSshuttle.alert == 1) // Crew transfer initiated
 					dat += "<div class='notice red'>В данный момент, происходит смена экипажа станции.</div><br>"
 	var/available_job_count = 0
