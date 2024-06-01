@@ -347,7 +347,7 @@
 			"Инженерный Отдел" = list(jobs = list(), titles = engineering_positions, color = "#ffd699"),
 			"Служба Безопасности" = list(jobs = list(), titles = security_positions, color = "#ff9999"),
 			"Прочие Профессии" = list(jobs = list(), titles = list(), color = "#ffffff", colBreak = TRUE),
-			"Синтеты" = list(jobs = list(), titles = nonhuman_positions, color = "#ccffcc"),
+			"Синтетический разум" = list(jobs = list(), titles = nonhuman_positions, color = "#ccffcc"),
 			"Гражданские Отделы" = list(jobs = list(), titles = civilian_positions, color = "#cccccc"),
 			"Медицинский Отдел" = list(jobs = list(), titles = medical_positions, color = "#99ffe6", colBreak = TRUE),
 			"Научный Отдел" = list(jobs = list(), titles = science_positions, color = "#e6b3e6"),
