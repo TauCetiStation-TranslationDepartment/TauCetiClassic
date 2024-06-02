@@ -10,8 +10,8 @@ var/global/lobby_screen = "lobby"
 #define CHECK_BOX "<span class='menu_box menu_box__check'>☑</span>"
 #define CROSS_BOX "<span class='menu_box menu_box__cross'>☒</span>"
 
-#define MARK_READY     "ГОТОВ&#8239;[CHECK_BOX]"
-#define MARK_NOT_READY "НЕ ГОТОВ&#8239;[CROSS_BOX]"
+#define MARK_READY     "ГОТОВНОСТЬ&#8239;[CHECK_BOX]"
+#define MARK_NOT_READY "ГОТОВНОСТЬ&#8239;[CROSS_BOX]"
 
 #define QUALITY_READY     "ПОЛУЧИТЬ&#8239;ОСОБЕННОСТЬ&#8239;[CHECK_BOX]"
 #define QUALITY_NOT_READY "ПОЛУЧИТЬ&#8239;ОСОБЕННОСТЬ&#8239;[CROSS_BOX]"
