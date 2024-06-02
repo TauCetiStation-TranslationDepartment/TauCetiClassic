@@ -150,9 +150,9 @@
 #define PLUR_SECONDS_LEFT(seconds) pluralize_russian(seconds, "секунда", "секунды", "секунд") // "Осталась 1 секунда". Не путайте с нижним.
 #define PLUR_SECONDS_IN(seconds)   pluralize_russian(seconds, "секунду", "секунды", "секунд") // "Через 1 секунду". Не путайте с верхним.
 
-#define PLUR_MINUTES_LEFT(minutes) pluralize_russian(minutes, "минута", "минут", "минуты") // "Осталась 1 минута". Не путайте с нижним.
+#define PLUR_MINUTES_LEFT(minutes) pluralize_russian(minutes, "минута", "минуты", "минут") // "Осталась 1 минута". Не путайте с нижним.
 #define PLUR_MINUTES_IN(minutes) pluralize_russian(minutes, "минуту", "минуты", "минут") // "Через 1 минуту". Не путайте с верхним.
 
-#define PLUR_HOURS_LEFT(hours) pluralize_russian(hours, "час", "часы", "часа")  // "Остался 1 час". Не путайте с нижним.
-#define PLUR_HOURS_IN(hours) pluralize_russian(hours, "час", "часа", "часа")  // "Через 1 час". Не путайте с верхним.
+#define PLUR_HOURS_LEFT(hours) pluralize_russian(hours, "час", "часа", "часов")  // "Остался 1 час". Не путайте с нижним.
+#define PLUR_HOURS_IN(hours) pluralize_russian(hours, "час", "часа", "часов")  // "Через 1 час". Не путайте с верхним.
 

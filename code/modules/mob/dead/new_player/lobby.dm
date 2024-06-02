@@ -13,8 +13,8 @@ var/global/lobby_screen = "lobby"
 #define MARK_READY     "ГОТОВНОСТЬ&#8239;[CHECK_BOX]"
 #define MARK_NOT_READY "ГОТОВНОСТЬ&#8239;[CROSS_BOX]"
 
-#define QUALITY_READY     "ПОЛУЧИТЬ&#8239;ОСОБЕННОСТЬ&#8239;[CHECK_BOX]"
-#define QUALITY_NOT_READY "ПОЛУЧИТЬ&#8239;ОСОБЕННОСТЬ&#8239;[CROSS_BOX]"
+#define QUALITY_READY     "ОСОБЕННОСТЬ&#8239;[CHECK_BOX]"
+#define QUALITY_NOT_READY "ОСОБЕННОСТЬ&#8239;[CROSS_BOX]"
 
 /mob/dead/new_player/proc/get_lobby_html()
 	var/dat = {"
