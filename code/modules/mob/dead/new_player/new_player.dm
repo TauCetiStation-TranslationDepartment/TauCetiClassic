@@ -311,14 +311,14 @@
 	var/hours = round(mills / 36000)
 	var/which_time_is_it = ""
 	if(mins == 1)
-		which_time_is_it = "<b>[mins]</b> минута."
+		which_time_is_it = "<b>[mins]</b> [PLUR_MINUTES_LEFT(mins)]."
 	else
-		which_time_is_it = "<b>[mins]</b> минут."
+		which_time_is_it = "<b>[mins]</b> [PLUR_MINUTES_LEFT(mins)]."
 	if(hours)
 		if(hours == 1)
-			which_time_is_it = "<b>[hours]</b> час и [which_time_is_it]"
+			which_time_is_it = "<b>[hours]</b> [PLUR_HOURS_LEFT(hours)] и [which_time_is_it]"
 		else
-			which_time_is_it = "<b>[hours]</b> часов и [which_time_is_it]"
+			which_time_is_it = "<b>[hours]</b> [PLUR_HOURS_LEFT(hours)] и [which_time_is_it]"
 
 	var/dat = "<div class='notice'>Длительность раунда: [which_time_is_it]</div>"
 
@@ -347,7 +347,7 @@
 			"Инженерный Отдел" = list(jobs = list(), titles = engineering_positions, color = "#ffd699"),
 			"Служба Безопасности" = list(jobs = list(), titles = security_positions, color = "#ff9999"),
 			"Прочие Профессии" = list(jobs = list(), titles = list(), color = "#ffffff", colBreak = TRUE),
-			"Синтетический разум" = list(jobs = list(), titles = nonhuman_positions, color = "#ccffcc"),
+			"Синтетический Разум" = list(jobs = list(), titles = nonhuman_positions, color = "#ccffcc"),
 			"Гражданские Отделы" = list(jobs = list(), titles = civilian_positions, color = "#cccccc"),
 			"Медицинский Отдел" = list(jobs = list(), titles = medical_positions, color = "#99ffe6", colBreak = TRUE),
 			"Научный Отдел" = list(jobs = list(), titles = science_positions, color = "#e6b3e6"),
