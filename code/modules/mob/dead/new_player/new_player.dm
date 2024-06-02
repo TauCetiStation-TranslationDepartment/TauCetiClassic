@@ -408,7 +408,7 @@
 	var/accurate_length = 600
 	if(number_of_extra_line_breaks) // We will expand window length for each <br>(Active: [active]) until its reaches 700 (worst cases)
 		accurate_length = min(700, accurate_length + (number_of_extra_line_breaks * 8))
-	var/datum/browser/popup = new(src, "latechoices", "Choose Profession", 680, accurate_length)
+	var/datum/browser/popup = new(src, "latechoices", "Выбор профессии", 680, accurate_length)
 	popup.add_stylesheet("playeroptions", 'html/browser/playeroptions.css')
 	popup.set_content(dat)
 	popup.open()
