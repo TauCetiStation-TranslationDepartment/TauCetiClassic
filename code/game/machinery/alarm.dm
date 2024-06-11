@@ -28,6 +28,7 @@
 ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 /obj/machinery/alarm
 	name = "alarm"
+	cases = list("устройство настройки внутренней атмосферы", "устройства настройки внутренней атмосферы", "устройству настройки внутренней атмосферы", "устройство настройки внутренней атмосферы", "устройством настройки внутренней атмосферы", "устройстве настройки внутренней атмосферы")
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm0"
 	anchored = TRUE
@@ -114,6 +115,8 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
 		name = "[alarm_area.name] Air Alarm"
+		for(var/i in 1 to length(cases))
+			cases[i] = cases[i] + " [CASE(alarm_area, GENITIVE_CASE)]"
 	if(!wires)
 		wires = new(src)
 
@@ -182,16 +185,16 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 			set_power_use(ACTIVE_POWER_USE)
 			regulating_temperature = 1
 			visible_message(
-				"\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",
-				"You hear a click and a faint electronic hum.")
+				"[src] начинает тихо щёлкать, [environment.temperature > target_temperature ? "охлаждая" : "нагревая"] помещение.",
+				"Вы услышали щелчок, после непродолжительного механического жужжания.")
 	else
 		//check for when we should stop adjusting temperature
 		if (!allow_regulate || get_danger_level(target_temperature, TLV["temperature"]) || abs(environment.temperature - target_temperature) <= 0.5)
 			set_power_use(IDLE_POWER_USE)
 			regulating_temperature = 0
 			visible_message(
-				"\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",
-				"You hear a click as a faint electronic humming stops.")
+				"[src] начинает тихо щёлкать, [environment.temperature > target_temperature ? "охлаждая" : "нагревая"] помещение.",
+				"Вы услышали щелчок, после непродолжительного механического жужжания.")
 
 	if (regulating_temperature)
 		if(target_temperature > T0C + MAX_TEMPERATURE)
@@ -503,11 +506,11 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 	data["has_environment"] = total
 	if(total)
 		var/pressure = environment.return_pressure()
-		environment_data[++environment_data.len] = list("name" = "Pressure", "value" = pressure, "unit" = "kPa", "danger_level" = pressure_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Oxygen", "value" = environment.gas["oxygen"] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Carbon dioxide", "value" = environment.gas["carbon_dioxide"] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Toxins", "value" = environment.gas["phoron"] / total * 100, "unit" = "%", "danger_level" = phoron_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Temperature", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Давление", "value" = pressure, "unit" = "kPa", "danger_level" = pressure_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Кислород", "value" = environment.gas["oxygen"] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Углекислый газ", "value" = environment.gas["carbon_dioxide"] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Опасные вещества", "value" = environment.gas["phoron"] / total * 100, "unit" = "%", "danger_level" = phoron_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Температура", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)
 	data["total_danger"] = danger_level
 	data["environment"] = environment_data
 	data["atmos_alarm"] = alarm_area.atmosalm
@@ -551,20 +554,20 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 						"panic"     = info["panic"],
 						"filters"   = list()
 					)
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",         "command" = "o2_scrub",  "val" = info["filter_o2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",       "command" = "n2_scrub",  "val" = info["filter_n2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub", "val" = info["filter_co2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin",          "command" = "tox_scrub", "val" = info["filter_phoron"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",  "command" = "n2o_scrub", "val" = info["filter_n2o"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Кислород",         "command" = "o2_scrub",  "val" = info["filter_o2"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Азот",       "command" = "n2_scrub",  "val" = info["filter_n2"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Углекислый газ", "command" = "co2_scrub", "val" = info["filter_co2"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Опасные вещества",          "command" = "tox_scrub", "val" = info["filter_phoron"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Оксид азота",  "command" = "n2o_scrub", "val" = info["filter_n2o"]))
 			data["scrubbers"] = scrubbers
 		if(AALARM_SCREEN_MODE)
 			var/modes[0]
-			modes[++modes.len] = list("name" = "Filtering - Scrubs out contaminants",           "mode" = AALARM_MODE_SCRUBBING,   "selected" = mode == AALARM_MODE_SCRUBBING,   "danger" = 0)
-			modes[++modes.len] = list("name" = "Replace Air - Siphons out air while replacing", "mode" = AALARM_MODE_REPLACEMENT, "selected" = mode == AALARM_MODE_REPLACEMENT, "danger" = 0)
-			modes[++modes.len] = list("name" = "Panic - Siphons air out of the room",           "mode" = AALARM_MODE_PANIC,       "selected" = mode == AALARM_MODE_PANIC,       "danger" = 1)
-			modes[++modes.len] = list("name" = "Cycle - Siphons air before replacing",          "mode" = AALARM_MODE_CYCLE,       "selected" = mode == AALARM_MODE_CYCLE,       "danger" = 1)
-			modes[++modes.len] = list("name" = "Fill - Shuts off scrubbers and opens vents",    "mode" = AALARM_MODE_FILL,        "selected" = mode == AALARM_MODE_FILL,        "danger" = 0)
-			modes[++modes.len] = list("name" = "Off - Shuts off vents and scrubbers",           "mode" = AALARM_MODE_OFF,         "selected" = mode == AALARM_MODE_OFF,         "danger" = 0)
+			modes[++modes.len] = list("name" = "Фильтрация - очищение воздуха в помещении",           "mode" = AALARM_MODE_SCRUBBING,   "selected" = mode == AALARM_MODE_SCRUBBING,   "danger" = 0)
+			modes[++modes.len] = list("name" = "Фильтрация с заменой - выкачивание воздуха с заменой на выбранное вещество.", "mode" = AALARM_MODE_REPLACEMENT, "selected" = mode == AALARM_MODE_REPLACEMENT, "danger" = 0)
+			modes[++modes.len] = list("name" = "Паника - выкачивает воздух из помещения",           "mode" = AALARM_MODE_PANIC,       "selected" = mode == AALARM_MODE_PANIC,       "danger" = 1)
+			modes[++modes.len] = list("name" = "Циклирование - выкачивает воздух перед заменой.",          "mode" = AALARM_MODE_CYCLE,       "selected" = mode == AALARM_MODE_CYCLE,       "danger" = 1)
+			modes[++modes.len] = list("name" = "Заполнение - выключает скрубберы и включает вентиляцию",    "mode" = AALARM_MODE_FILL,        "selected" = mode == AALARM_MODE_FILL,        "danger" = 0)
+			modes[++modes.len] = list("name" = "Отключение - выключает вентиляции и скрубберы",           "mode" = AALARM_MODE_OFF,         "selected" = mode == AALARM_MODE_OFF,         "danger" = 0)
 			data["modes"] = modes
 			data["mode"] = mode
 		if(AALARM_SCREEN_SENSORS)
@@ -572,10 +575,10 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 			var/thresholds[0]
 
 			var/list/gas_names = list(
-				"oxygen"         = "O<sub>2</sub>",
-				"carbon dioxide" = "CO<sub>2</sub>",
-				"phoron"         = "Toxin",
-				"other"          = "Other")
+				"oxygen"         = "Кислород",
+				"carbon dioxide" = "Углекислый газ",
+				"phoron"         = "Опасные вещества",
+				"other"          = "Другое")
 			for (var/g in gas_names)
 				thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
 				selected = TLV[g]
@@ -583,12 +586,12 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 					thresholds[thresholds.len]["settings"] += list(list("env" = g, "val" = i, "selected" = selected[i]))
 
 			selected = TLV["pressure"]
-			thresholds[++thresholds.len] = list("name" = "Pressure", "settings" = list())
+			thresholds[++thresholds.len] = list("name" = "Давление", "settings" = list())
 			for (var/i in 1 to 4)
 				thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = i, "selected" = selected[i]))
 
 			selected = TLV["temperature"]
-			thresholds[++thresholds.len] = list("name" = "Temperature", "settings" = list())
+			thresholds[++thresholds.len] = list("name" = "Температура", "settings" = list())
 			for (var/i in 1 to 4)
 				thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = i, "selected" = selected[i]))
 
@@ -599,7 +602,7 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 		return STATUS_CLOSE
 
 	if(aidisabled && isAI(user))
-		to_chat(user, "<span class='warning'>AI control for \the [src] interface has been disabled.</span>")
+		to_chat(user, "<span class='warning'>Возможность удалённого доступа для интерфейса [CASE(src, GENITIVE_CASE)] была отключена.</span>")
 		return STATUS_CLOSE
 
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
@@ -635,12 +638,12 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 		var/list/selected = TLV["temperature"]
 		var/max_temperature = min(selected[3] - T0C-1, MAX_TEMPERATURE) // (-/+ 1) required because it won't heat/cool, if (target_temperature == TLV)
 		var/min_temperature = max(selected[2] - T0C+1, MIN_TEMPERATURE)
-		var/input_temperature = input("What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
+		var/input_temperature = input("Настройте необходимую вам температуру. Температура не должна быть ниже [min_temperature]C и выше [max_temperature]C", "Контроль терморегулирования", target_temperature - T0C) as num|null
 		if(!can_still_interact_with(usr))
 			return
 		if(isnum(input_temperature))
 			if(input_temperature > max_temperature || input_temperature < min_temperature)
-				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C")
+				to_chat(usr, "Температура не должна быть ниже [min_temperature]C и выше [max_temperature]C")
 			else
 				target_temperature = input_temperature + T0C
 		return FALSE
@@ -656,7 +659,7 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 			switch(href_list["command"])
 
 				if("set_external_pressure")
-					var/input_pressure = input("What pressure you like the system to mantain?", "Pressure Controls") as num|null
+					var/input_pressure = input("Настройте необходимое для вас внешнее давление", "Контроль давления") as num|null
 					if(!can_still_interact_with(usr))
 						return
 					if(isnum(input_pressure))
@@ -668,7 +671,7 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 					return FALSE
 
 				if("set_internal_pressure")
-					var/input_pressure = input("What pressure you like the system to mantain?", "Pressure Controls") as num|null
+					var/input_pressure = input("Настройте необходимое для вас внутреннее давление", "Контроль давления") as num|null
 					if(!can_still_interact_with(usr))
 						return
 					if(isnum(input_pressure))
@@ -703,7 +706,7 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 					var/env = href_list["env"]
 					var/threshold = text2num(href_list["var"])
 					var/list/selected = TLV[env]
-					var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
+					var/list/thresholds = list("нижнее значение", "зелёный код", "синий код", "красный код")
 					var/newval = input("Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
 					if(!can_still_interact_with(usr))
 						return
@@ -800,7 +803,7 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 		send_signal(device_id, list("power"= 1, "checks"= "default", "set_external_pressure"= ONE_ATMOSPHERE * 10) )
 
 /obj/machinery/alarm/attack_alien(mob/living/carbon/xenomorph/humanoid/user)
-	to_chat(user, "You don't want to break these things");
+	to_chat(user, "Вы не хотите с этим взаимодействовать.");
 	return
 
 /obj/machinery/alarm/attackby(obj/item/W, mob/user)
@@ -811,12 +814,12 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 		if(2)
 			if(isscrewing(W))  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
-				to_chat(user, "The wires have been [wiresexposed ? "exposed" : "unexposed"]")
+				to_chat(user, "Провода [wiresexposed ? "обрезаны" : "не обрезаны"]")
 				update_icon()
 				return
 
 			if (iscutter(W) && wiresexposed && wires.is_all_cut())
-				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You have cut the wires inside \the [src].")
+				user.visible_message("<span class='warning'>[user] начал перерезать провода в [CASE(src, ABLATIVE_CASE)]!</span>", "Вы перерезали провода в [CASE(src, GENITIVE_CASE)].")
 				playsound(src, 'sound/items/Wirecutter.ogg', VOL_EFFECTS_MASTER)
 				new /obj/item/stack/cable_coil/random(loc, 5)
 				buildstage = 1
@@ -825,15 +828,15 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 
 			if (istype(W, /obj/item/weapon/card/id) || istype(W, /obj/item/device/pda))// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, "It does nothing")
+					to_chat(user, "Оно не работает.")
 					return
 				else
 					if(allowed(usr) && !wires.is_index_cut(AALARM_WIRE_IDSCAN))
 						locked = !locked
-						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
+						to_chat(user, "<span class='notice'>Вы [ locked ? "заблокировали" : "разблокировали"] интерфейс устройства.</span>")
 						updateUsrDialog()
 					else
-						to_chat(user, "<span class='warning'>Access denied.</span>")
+						to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
 
 			if(wiresexposed && is_wire_tool(W))
 				wires.interact(user)
@@ -843,10 +846,10 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 			if(iscoil(W))
 				var/obj/item/stack/cable_coil/coil = W
 				if(!coil.use(5))
-					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
+					to_chat(user, "<span class='warning'>Для проведения проводки в [CASE(src, GENITIVE_CASE)], вам потребуется 5 кусков кабеля.</span>")
 					return
 
-				to_chat(user, "You wire \the [src]!")
+				to_chat(user, "Вы провели проводку в [CASE(src, GENITIVE_CASE)]!")
 
 				buildstage = 2
 				update_icon()
@@ -857,9 +860,9 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 			else if(isprying(W))
 				if(user.is_busy())
 					return
-				to_chat(user, "You start prying out the circuit.")
+				to_chat(user, "Вы начинаете вынимать плату управления из устройства.")
 				if(W.use_tool(src, user, 20, volume = 50))
-					to_chat(user, "You pry out the circuit!")
+					to_chat(user, "Вы вынули плату управления из устройства!")
 					var/obj/item/weapon/airalarm_electronics/circuit = new /obj/item/weapon/airalarm_electronics()
 					circuit.loc = user.loc
 					buildstage = 0
@@ -867,14 +870,14 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 				return
 		if(0)
 			if(istype(W, /obj/item/weapon/airalarm_electronics))
-				to_chat(user, "You insert the circuit!")
+				to_chat(user, "Вы вставили плату управления в устройство.")
 				qdel(W)
 				buildstage = 1
 				update_icon()
 				return
 
 			else if(iswrenching(W))
-				to_chat(user, "You remove the fire alarm assembly from the wall!")
+				to_chat(user, "Вы убрали заготовку для устройства оповещения со стены.")
 				playsound(src, 'sound/items/Ratchet.ogg', VOL_EFFECTS_MASTER)
 				deconstruct(TRUE)
 
@@ -905,18 +908,19 @@ ADD_TO_GLOBAL_LIST(/obj/machinery/alarm, air_alarms)
 /obj/machinery/alarm/examine(mob/user)
 	..()
 	if (buildstage < 2)
-		to_chat(user, "It is not wired.")
+		to_chat(user, "Здесь не проведена проводка.")
 	if (buildstage < 1)
-		to_chat(user, "The circuit is missing.")
+		to_chat(user, "Отсутствует плата.")
 /*
 AIR ALARM CIRCUIT
 Just a object used in constructing air alarms
 */
 /obj/item/weapon/airalarm_electronics
 	name = "air alarm electronics"
+	cases = list("плата для устройства управления внутренней атмосферы", "платы для устройства управления внутренней атмосферы", "плате для устройства управления внутренней атмосферы", "плата для устройства управления внутренней атмосферы", "платой для устройства управления внутренней атмосферы", "плате для устройства управления внутренней атмосферы")
 	icon = 'icons/obj/doors/door_electronics.dmi'
 	icon_state = "door_electronics"
-	desc = "Looks like a circuit. Probably is."
+	desc = "Выглядит как плата. Возможно, это она и есть."
 	w_class = SIZE_TINY
 	m_amt = 50
 	g_amt = 50
@@ -929,6 +933,7 @@ Code shamelessly copied from apc_frame
 */
 /obj/item/alarm_frame
 	name = "air alarm frame"
+	cases = list("устройство настройки внутренней атмосферы", "устройства настройки внутренней атмосферы", "устройству настройки внутренней атмосферы", "устройство настройки внутренней атмосферы", "устройством настройки внутренней атмосферы", "устройстве настройки внутренней атмосферы")
 	desc = "Used for building Air Alarms"
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm_bitem"
@@ -953,14 +958,14 @@ Code shamelessly copied from apc_frame
 	var/turf/loc = get_turf_loc(usr)
 	var/area/A = loc.loc
 	if (!isfloorturf(loc))
-		to_chat(usr, "<span class='warning'>Air Alarm cannot be placed on this spot.</span>")
+		to_chat(usr, "<span class='warning'>Устройство настройки внутренней атмосферы не может быть здесь расположено.</span>")
 		return
 	if (A.requires_power == 0 || A.name == "Space")
-		to_chat(usr, "<span class='warning'>Air Alarm cannot be placed in this area.</span>")
+		to_chat(usr, "<span class='warning'>Устройство настройки внутренней атмосферы не может быть здесь расположено.</span>")
 		return
 
 	if(gotwallitem(loc, ndir))
-		to_chat(usr, "<span class='warning'>There's already an item on this wall!</span>")
+		to_chat(usr, "<span class='warning'>Здесь уже есть устройство!</span>")
 		return
 
 	new /obj/machinery/alarm(loc, ndir, 1)
@@ -971,6 +976,7 @@ FIRE ALARM
 */
 /obj/machinery/firealarm
 	name = "Fire Alarm"
+	cases = list("устройство пожарной тревоги", "устройства пожарной тревоги", "устройству пожарной тревоги", "устройство пожарной тревоги", "устройством пожарной тревоги", "устройстве пожарной тревоги")
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
@@ -1033,11 +1039,11 @@ FIRE ALARM
 				if (ispulsing(W))
 					detecting = !detecting
 					if (detecting)
-						user.visible_message("<span class='warning'>[user] has reconnected [src]'s detecting unit!</span>", "You have reconnected [src]'s detecting unit.")
+						user.visible_message("<span class='warning'>[user] присоединил сканер к [CASE(src, DATIVE_CASE)]</span>", "Вы присоединили сканер к [CASE(src, DATIVE_CASE)].")
 					else
-						user.visible_message("<span class='warning'>[user] has disconnected [src]'s detecting unit!</span>", "You have disconnected [src]'s detecting unit.")
+						user.visible_message("<span class='warning'>[user] отсоединил сканер от [CASE(src, GENITIVE_CASE)]!</span>", "Вы отсоединили сканер от [CASE(src, GENITIVE_CASE)].")
 				else if (iscutter(W))
-					user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You have cut the wires inside \the [src].")
+					user.visible_message("<span class='warning'>[user] начал перерезать провода в [CASE(src, ABLATIVE_CASE)]!</span>", "Вы перерезали провода в [CASE(src, GENITIVE_CASE)].")
 					new /obj/item/stack/cable_coil/random(loc, 5)
 					playsound(src, 'sound/items/Wirecutter.ogg', VOL_EFFECTS_MASTER)
 					buildstage = 1
@@ -1046,7 +1052,7 @@ FIRE ALARM
 				if(iscoil(W))
 					var/obj/item/stack/cable_coil/coil = W
 					if(!coil.use(5))
-						to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
+						to_chat(user, "<span class='warning'>Для проведения проводки в [CASE(src, GENITIVE_CASE)], вам потребуется 5 кусков кабеля.</span>")
 						return
 
 					buildstage = 2
@@ -1054,9 +1060,9 @@ FIRE ALARM
 					update_icon()
 
 				else if(isprying(W))
-					to_chat(user, "You start prying out the circuit.")
+					to_chat(user, "Вы начинаете вынимать плату управления из устройства.")
 					if(W.use_tool(src, user, 20, volume = 50))
-						to_chat(user, "You pry out the circuit!")
+						to_chat(user, "Вы вынули плату управления из устройства")
 						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
 						circuit.loc = user.loc
 						buildstage = 0
@@ -1064,7 +1070,7 @@ FIRE ALARM
 
 			if(0)
 				if(istype(W, /obj/item/weapon/firealarm_electronics))
-					to_chat(user, "You insert the circuit!")
+					to_chat(user, "Вы провели проводку в [CASE(src, GENITIVE_CASE)].")
 					qdel(W)
 					buildstage = 1
 					update_icon()
@@ -1072,7 +1078,7 @@ FIRE ALARM
 				else if(iswrenching(W))
 					if(user.is_busy())
 						return
-					to_chat(user, "You remove the fire alarm assembly from the wall!")
+					to_chat(user, "Вы убрали заготовку для устройства пожарной стены со стены.")
 					var/obj/item/firealarm_frame/frame = new /obj/item/firealarm_frame()
 					frame.loc = user.loc
 					playsound(src, 'sound/items/Ratchet.ogg', VOL_EFFECTS_MASTER)
@@ -1125,16 +1131,16 @@ FIRE ALARM
 	var/d2
 	if (ishuman(user) || issilicon(user) || isobserver(user))
 		if (A.fire)
-			d1 = text("<A href='?src=\ref[];reset=1'>Reset - Lockdown</A>", src)
+			d1 = text("<A href='?src=\ref[];reset=1'>Перезагрузка - блокировка</A>", src)
 		else
-			d1 = text("<A href='?src=\ref[];alarm=1'>Alarm - Lockdown</A>", src)
+			d1 = text("<A href='?src=\ref[];alarm=1'>Тревога - блокировка</A>", src)
 		if (timing)
-			d2 = text("<A href='?src=\ref[];time=0'>Stop Time Lock</A>", src)
+			d2 = text("<A href='?src=\ref[];time=0'>Остановить блокировку</A>", src)
 		else
-			d2 = text("<A href='?src=\ref[];time=1'>Initiate Time Lock</A>", src)
+			d2 = text("<A href='?src=\ref[];time=1'>Начать блокировку</A>", src)
 		var/second = round(time) % 60
 		var/minute = (round(time) - second) / 60
-		var/dat = "[d1]\n<HR><b>The current alert level is: [get_security_level()]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n"
+		var/dat = "[d1]\n<HR><b>Текущий уровень тревоги: [get_security_level()]</b><br><br>\nСистема таймера: [d2]<BR>\nОсталось времени: [(minute ? "[minute]:" : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n"
 
 		var/datum/browser/popup = new(user, "window=firealarm", src.name)
 		popup.set_content(dat)
@@ -1142,13 +1148,13 @@ FIRE ALARM
 
 	else
 		if (A.fire)
-			d1 = text("<A href='?src=\ref[];reset=1'>[]</A>", src, stars("Reset - Lockdown"))
+			d1 = text("<A href='?src=\ref[];reset=1'>[]</A>", src, stars("Перезагрузка - блокировка"))
 		else
-			d1 = text("<A href='?src=\ref[];alarm=1'>[]</A>", src, stars("Alarm - Lockdown"))
+			d1 = text("<A href='?src=\ref[];alarm=1'>[]</A>", src, stars("Тревога - блокировка"))
 		if (timing)
-			d2 = text("<A href='?src=\ref[];time=0'>[]</A>", src, stars("Stop Time Lock"))
+			d2 = text("<A href='?src=\ref[];time=0'>[]</A>", src, stars("Остановить блокировку"))
 		else
-			d2 = text("<A href='?src=\ref[];time=1'>[]</A>", src, stars("Initiate Time Lock"))
+			d2 = text("<A href='?src=\ref[];time=1'>[]</A>", src, stars("Начать блокировку"))
 		var/second = round(time) % 60
 		var/minute = (round(time) - second) / 60
 		var/dat = "[d1]\n<HR><b>The current alert level is: [stars(get_security_level())]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? text("[]:", minute) : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n"
@@ -1262,9 +1268,10 @@ Just a object used in constructing fire alarms
 */
 /obj/item/weapon/firealarm_electronics
 	name = "fire alarm electronics"
+	cases = list("плата для устройства пожарной тревоги", "платы для устройства пожарной тревоги", "плате для устройства пожарной тревоги", "плата для устройства пожарной тревоги", "платой для устройства пожарной тревоги", "плате для устройства пожарной тревоги")
 	icon = 'icons/obj/doors/door_electronics.dmi'
 	icon_state = "door_electronics"
-	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
+	desc = "Плата, надпись на которой гласит \"Может выдержать до 40 градусов цельсия!\""
 	w_class = SIZE_TINY
 	m_amt = 50
 	g_amt = 50
@@ -1277,7 +1284,8 @@ Code shamelessly copied from apc_frame
 */
 /obj/item/firealarm_frame
 	name = "fire alarm frame"
-	desc = "Used for building Fire Alarms."
+	cases = list("устройство пожарной тревоги", "устройства пожарной тревоги", "устройству пожарной тревоги", "устройство пожарной тревоги", "устройством пожарной тревоги", "устройстве пожарной тревоги")
+	desc = "Используется для устройств пожарной тревоги."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire_bitem"
 	flags = CONDUCT
@@ -1301,14 +1309,14 @@ Code shamelessly copied from apc_frame
 	var/turf/loc = get_turf_loc(usr)
 	var/area/A = get_area(src)
 	if (!isfloorturf(loc))
-		to_chat(usr, "<span class='warning'>Fire Alarm cannot be placed on this spot.</span>")
+		to_chat(usr, "<span class='warning'>Устройство не может быть здесь расположено.</span>")
 		return
 	if (A.requires_power == 0 || A.name == "Space")
-		to_chat(usr, "<span class='warning'>Fire Alarm cannot be placed in this area.</span>")
+		to_chat(usr, "<span class='warning'>Устройство не может быть здесь расположено.</span>")
 		return
 
 	if(gotwallitem(loc, ndir))
-		to_chat(usr, "<span class='warning'>There's already an item on this wall!</span>")
+		to_chat(usr, "<span class='warning'>На этой стене уже есть устройство!</span>")
 		return
 
 	new /obj/machinery/firealarm(loc, ndir, 1)
