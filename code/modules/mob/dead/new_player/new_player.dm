@@ -159,7 +159,7 @@
 
 	if(href_list["SelectedJob"])
 		if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-			to_chat(usr, "<span class='notice'>Администрация отключила вступление в раунд!</span>")
+			to_chat(usr, "<span class='notice'>Администрация отключила возможность присоединиться в раунд!</span>")
 			return
 
 		if(client.prefs.species != HUMAN)
