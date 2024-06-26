@@ -372,7 +372,7 @@
 							else
 								jobs += job
 				if(!categorized)
-					categorizedJobs["Прочие Профессии"]["jobs"] += job
+					categorizedJobs["Прочие должности"]["jobs"] += job
 
 
 		dat += "<table><tr><td valign='top'>"
