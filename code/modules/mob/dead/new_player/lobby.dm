@@ -135,7 +135,7 @@ var/global/lobby_screen = "lobby"
 		var/has_quality = client.prefs.selected_quality_name
 		dat += {"<a id="quality" class="menu_a" href='?src=\ref[src];lobby_be_special=1'>[has_quality ? QUALITY_READY : QUALITY_NOT_READY]</a>"}
 
-	dat += {"<a class="menu_a" href='?src=\ref[src];lobby_observe=1'>НАБЛЮДЕНИЕ</a>"}
+	dat += {"<a class="menu_a" href='?src=\ref[src];lobby_observe=1'>НАБЛЮДАТЬ</a>"}
 	dat += "<br><br>"
 	dat += {"<a class="menu_a" href='?src=\ref[src];lobby_changelog=1'>СПИСОК ИЗМЕНЕНИЙ</a>"}
 
