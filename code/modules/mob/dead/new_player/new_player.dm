@@ -338,7 +338,7 @@
 			available_job_count++
 
 	if(!available_job_count)
-		dat += "<div class='notice red'>В данный момент, нет свободных вакансий! Приходите позже.</div>"
+		dat += "<div class='notice red'>В данный момент нет вакансий!</div>"
 	else
 		dat += "<div class='clearBoth'>Выберите желаемую вами профессию из этого списка:</div>"
 		var/list/categorizedJobs = list(
