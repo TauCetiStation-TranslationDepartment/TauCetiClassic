@@ -10,11 +10,11 @@ var/global/lobby_screen = "lobby"
 #define CHECK_BOX "<span class='menu_box menu_box__check'>☑</span>"
 #define CROSS_BOX "<span class='menu_box menu_box__cross'>☒</span>"
 
-#define MARK_READY     "READY&#8239;[CHECK_BOX]"
-#define MARK_NOT_READY "READY&#8239;[CROSS_BOX]"
+#define MARK_READY     "ГОТОВНОСТЬ&#8239;[CHECK_BOX]"
+#define MARK_NOT_READY "ГОТОВНОСТЬ&#8239;[CROSS_BOX]"
 
-#define QUALITY_READY     "BE&#8239;SPECIAL&#8239;[CHECK_BOX]"
-#define QUALITY_NOT_READY "BE&#8239;SPECIAL&#8239;[CROSS_BOX]"
+#define QUALITY_READY     "ОСОБЕННОСТЬ&#8239;[CHECK_BOX]"
+#define QUALITY_NOT_READY "ОСОБЕННОСТЬ&#8239;[CROSS_BOX]"
 
 /mob/dead/new_player/proc/get_lobby_html()
 	var/dat = {"
@@ -120,27 +120,27 @@ var/global/lobby_screen = "lobby"
 
 	dat += {"
 			<div class="container_nav"><div class="container_nav_rot">
-				<a class="menu_a" href='?src=\ref[src];lobby_setup=1'>SETUP</a>
+				<a class="menu_a" href='?src=\ref[src];lobby_setup=1'>НАСТРОЙКА ПЕРСОНАЖЕЙ</a>
 	"}
 
 	if(config.alt_lobby_menu)
-		dat += {"<a class="menu_a" href='?src=\ref[src];event_join=1'>JOIN</a>"}
+		dat += {"<a class="menu_a" href='?src=\ref[src];event_join=1'>ИГРАТЬ</a>"}
 	else
 		if(!SSticker || SSticker.current_state <= GAME_STATE_PREGAME)
 			dat += {"<a id="ready" class="menu_a" href='?src=\ref[src];lobby_ready=1'>[ready ? MARK_READY : MARK_NOT_READY]</a>"}
 		else
-			dat += {"<a class="menu_a" href='?src=\ref[src];lobby_crew=1'>CREW</a>"}
-			dat += {"<a class="menu_a" href='?src=\ref[src];lobby_join=1'>JOIN</a>"}
+			dat += {"<a class="menu_a" href='?src=\ref[src];lobby_crew=1'>СПИСОК ЭКИПАЖА</a>"}
+			dat += {"<a class="menu_a" href='?src=\ref[src];lobby_join=1'>ИГРАТЬ</a>"}
 
 		var/has_quality = client.prefs.selected_quality_name
 		dat += {"<a id="quality" class="menu_a" href='?src=\ref[src];lobby_be_special=1'>[has_quality ? QUALITY_READY : QUALITY_NOT_READY]</a>"}
 
-	dat += {"<a class="menu_a" href='?src=\ref[src];lobby_observe=1'>OBSERVE</a>"}
+	dat += {"<a class="menu_a" href='?src=\ref[src];lobby_observe=1'>НАБЛЮДАТЬ</a>"}
 	dat += "<br><br>"
-	dat += {"<a class="menu_a" href='?src=\ref[src];lobby_changelog=1'>CHANGELOG</a>"}
+	dat += {"<a class="menu_a" href='?src=\ref[src];lobby_changelog=1'>СПИСОК ИЗМЕНЕНИЙ</a>"}
 
 	dat += "</div></div>"
-	
+
 	if(global.custom_lobby_image)
 		dat += {"<img src="titlescreen.gif" class="background" alt="">"}
 	else if (client.prefs.lobbyanimation)

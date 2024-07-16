@@ -61,14 +61,14 @@
 	..()
 
 	if(statpanel("Lobby"))
-		stat("Game Mode:", SSticker.bundle ? "[SSticker.bundle.name]" : "[master_mode]")
+		stat("Игровой режим:", SSticker.bundle ? "[SSticker.bundle.name]" : "[master_mode]")
 
 		if(world.is_round_preparing())
-			stat("Time To Start:", (SSticker.timeLeft >= 0) ? "[round(SSticker.timeLeft / 10)]s" : "DELAYED")
+			stat("Время до старта раунда:", (SSticker.timeLeft >= 0) ? "[round(SSticker.timeLeft / 10)]s" : "DELAYED")
 
 			stat("Players:", "[SSticker.totalPlayers]")
 			if(client.holder)
-				stat("Players Ready:", "[SSticker.totalPlayersReady]")
+				stat("Готовые игроки:", "[SSticker.totalPlayersReady]")
 
 /mob/dead/new_player/Topic(href, href_list[])
 	if(src != usr || !client)
@@ -88,7 +88,7 @@
 		if(config.alt_lobby_menu)
 			return
 		if(ready && SSticker.timeLeft <= 50)
-			to_chat(src, "<span class='warning'>Locked! The round is about to start.</span>")
+			to_chat(src, "<span class='warning'>Подожди, раунд скоро начнётся!</span>")
 			return
 		if(SSticker && SSticker.current_state <= GAME_STATE_PREGAME)
 			ready = !ready
@@ -117,12 +117,12 @@
 
 	if(href_list["lobby_observe"])
 		if(!(ckey in admin_datums) && jobban_isbanned(src, "Observer"))
-			to_chat(src, "<span class='red'>You have been banned from observing. Declare yourself.</span>")
+			to_chat(src, "<span class='red'>Вам была заблокирована возможность наблюдать за раундом.</span>")
 			return
 		if(!SSmapping.station_loaded)
-			to_chat(src, "<span class='red'>There is no station yet, please wait.</span>")
+			to_chat(src, "<span class='red'>Станцию еще не построили, пожалуйста подождите.</span>")
 			return
-		if(tgui_alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup", list("Yes","No")) == "Yes")
+		if(tgui_alert(src,"Вы уверены, что хотите стать наблюдателем? Вам потребуется ждать 30 минут, для возможности вернуться в раунд!","Настройка персонажа", list("Да","Нет")) == "Да")
 			if(!client)
 				return
 			spawn_as_observer()
@@ -133,12 +133,12 @@
 		if(config.alt_lobby_menu)
 			return
 		if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
-			to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+			to_chat(usr, "<span class='warning'>Раунд не начался, либо уже закончился.</span>")
 			return
 
 		if(client.prefs.species != HUMAN)
 			if(!is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-				tgui_alert(usr, "You are currently not whitelisted to play [client.prefs.species].")
+				tgui_alert(usr, "Вы не можете играть на [client.prefs.species] в данный момент.")
 				return FALSE
 
 		LateChoices()
@@ -159,12 +159,12 @@
 
 	if(href_list["SelectedJob"])
 		if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game for non-observers!</span>")
+			to_chat(usr, "<span class='notice'>Администрация отключила возможность присоединиться в раунд!</span>")
 			return
 
 		if(client.prefs.species != HUMAN)
 			if(!is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-				tgui_alert(usr, "You are currently not whitelisted to play [client.prefs.species].")
+				tgui_alert(usr, "Вы не можете играть на [client.prefs.species] в данный момент.")
 				return FALSE
 		AttemptLateSpawn(href_list["SelectedJob"])
 		return
@@ -175,7 +175,7 @@
 		return
 
 	else
-		to_chat(src, "Locked! You are ready.")
+		to_chat(src, "Подожди! Нельзя редактировать персонажа после готовности.")
 		return
 
 /mob/dead/new_player/proc/IsJobAvailable(rank)
@@ -206,7 +206,7 @@
 	observer.started_as_observer = 1
 	close_spawn_windows()
 	var/obj/O = locate("landmark*Observer-Start")
-	to_chat(src, "<span class='notice'>Now teleporting.</span>")
+	to_chat(src, "<span class='notice'>Телепортируемся...</span>")
 	observer.loc = O.loc
 	observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
@@ -232,13 +232,13 @@
 	if (src != usr)
 		return 0
 	if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
-		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+		to_chat(usr, "<span class='warning'>Раунд не начался, либо уже закончился.</span>")
 		return 0
 	if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game for non-observers!</span>")
+		to_chat(usr, "<span class='notice'>Администрация отключила вступление в раунд!</span>")
 		return 0
 	if(!IsJobAvailable(rank))
-		to_chat(usr, "<span class='notice'>[rank] is not available. Please try another.</span>")
+		to_chat(usr, "<span class='notice'>В данный момент, роль [rank] отключена. Пожалуйста попробуйте выбрать другую роль.</span>")
 		return 0
 
 	spawning = 1
@@ -311,26 +311,26 @@
 	var/hours = round(mills / 36000)
 	var/which_time_is_it = ""
 	if(mins == 1)
-		which_time_is_it = "<b>[mins]</b> minute."
+		which_time_is_it = "<b>[mins]</b> [PLUR_MINUTES_LEFT(mins)]."
 	else
-		which_time_is_it = "<b>[mins]</b> minutes."
+		which_time_is_it = "<b>[mins]</b> [PLUR_MINUTES_LEFT(mins)]."
 	if(hours)
 		if(hours == 1)
-			which_time_is_it = "<b>[hours]</b> hour and [which_time_is_it]"
+			which_time_is_it = "<b>[hours]</b> [PLUR_HOURS_LEFT(hours)] и [which_time_is_it]"
 		else
-			which_time_is_it = "<b>[hours]</b> hours and [which_time_is_it]"
+			which_time_is_it = "<b>[hours]</b> [PLUR_HOURS_LEFT(hours)] и [which_time_is_it]"
 
-	var/dat = "<div class='notice'>Round Duration: [which_time_is_it]</div>"
+	var/dat = "<div class='notice'>Длительность раунда: [which_time_is_it]</div>"
 
 	if(SSshuttle) // In case Nanotrasen decides reposess CentComm's shuttles.
 		switch(SSshuttle.direction)
 			if(2) // Shuttle is going to centcomm, not recalled
-				dat += "<div class='notice red'>The station has been evacuated.</div><br>"
+				dat += "<div class='notice red'>Персонал станции был эвакуирован.</div><br>"
 			if(1)
 				if(SSshuttle.timeleft() < 300 && SSshuttle.alert == 0) // Emergency shuttle is past the point of no recall
-					dat += "<div class='notice red'>The station is currently undergoing evacuation procedures.</div><br>"
+					dat += "<div class='notice red'>В настоящее время на станции активированы протоколы эвакуации персонала.</div><br>"
 				else if(SSshuttle.alert == 1) // Crew transfer initiated
-					dat += "<div class='notice red'>The station is currently undergoing crew transfer procedures.</div><br>"
+					dat += "<div class='notice red'>В данный момент, происходит смена экипажа станции.</div><br>"
 	var/available_job_count = 0
 	var/number_of_extra_line_breaks = 0 // We will need it in the end.
 	for(var/datum/job/job in SSjob.occupations)
@@ -338,19 +338,19 @@
 			available_job_count++
 
 	if(!available_job_count)
-		dat += "<div class='notice red'>There are currently no open positions!</div>"
+		dat += "<div class='notice red'>В данный момент нет вакансий!</div>"
 	else
-		dat += "<div class='clearBoth'>Choose from the following open positions:</div>"
+		dat += "<div class='clearBoth'>Выберите желаемую вами профессию из этого списка:</div>"
 		var/list/categorizedJobs = list(
-			"Command" = list(jobs = list(), titles = command_positions, color = "#aac1ee"),
-			"NT Representatives" = list(jobs = list(), titles = centcom_positions, color = "#6c7391"),
-			"Engineering" = list(jobs = list(), titles = engineering_positions, color = "#ffd699"),
-			"Security" = list(jobs = list(), titles = security_positions, color = "#ff9999"),
-			"Miscellaneous" = list(jobs = list(), titles = list(), color = "#ffffff", colBreak = TRUE),
-			"Synthetic" = list(jobs = list(), titles = nonhuman_positions, color = "#ccffcc"),
-			"Service" = list(jobs = list(), titles = civilian_positions, color = "#cccccc"),
-			"Medical" = list(jobs = list(), titles = medical_positions, color = "#99ffe6", colBreak = TRUE),
-			"Science" = list(jobs = list(), titles = science_positions, color = "#e6b3e6"),
+			"Командование" = list(jobs = list(), titles = command_positions, color = "#aac1ee"),
+			"Представительство НТ" = list(jobs = list(), titles = centcom_positions, color = "#6c7391"),
+			"Инженерный Отдел" = list(jobs = list(), titles = engineering_positions, color = "#ffd699"),
+			"Служба Безопасности" = list(jobs = list(), titles = security_positions, color = "#ff9999"),
+			"Прочие Профессии" = list(jobs = list(), titles = list(), color = "#ffffff", colBreak = TRUE),
+			"Синтетический Разум" = list(jobs = list(), titles = nonhuman_positions, color = "#ccffcc"),
+			"Гражданские Отделы" = list(jobs = list(), titles = civilian_positions, color = "#cccccc"),
+			"Медицинский Отдел" = list(jobs = list(), titles = medical_positions, color = "#99ffe6", colBreak = TRUE),
+			"Научный Отдел" = list(jobs = list(), titles = science_positions, color = "#e6b3e6"),
 		)
 
 		for(var/datum/job/job in SSjob.occupations)
@@ -360,7 +360,7 @@
 					var/list/jobs = categorizedJobs[jobcat]["jobs"]
 					if(job.title in categorizedJobs[jobcat]["titles"])
 						categorized = TRUE
-						if(jobcat == "Command")
+						if(jobcat == "Командование")
 
 							if(job.title == "Captain") // Put captain at top of command jobs
 								jobs.Insert(1, job)
@@ -372,7 +372,7 @@
 							else
 								jobs += job
 				if(!categorized)
-					categorizedJobs["Miscellaneous"]["jobs"] += job
+					categorizedJobs["Прочие должности"]["jobs"] += job
 
 
 		dat += "<table><tr><td valign='top'>"
@@ -408,7 +408,7 @@
 	var/accurate_length = 600
 	if(number_of_extra_line_breaks) // We will expand window length for each <br>(Active: [active]) until its reaches 700 (worst cases)
 		accurate_length = min(700, accurate_length + (number_of_extra_line_breaks * 8))
-	var/datum/browser/popup = new(src, "latechoices", "Choose Profession", 680, accurate_length)
+	var/datum/browser/popup = new(src, "latechoices", "Выбор профессии", 680, accurate_length)
 	popup.add_stylesheet("playeroptions", 'html/browser/playeroptions.css')
 	popup.set_content(dat)
 	popup.open()
@@ -465,7 +465,7 @@
 /mob/dead/new_player/proc/ViewManifest()
 	var/dat = data_core.html_manifest(OOC = 1)
 
-	var/datum/browser/popup = new(src, "manifest", "Crew Manifest", 370, 420, ntheme = CSS_THEME_LIGHT)
+	var/datum/browser/popup = new(src, "manifest", "Список экипажа", 370, 420, ntheme = CSS_THEME_LIGHT)
 	popup.set_content(dat)
 	popup.open()
 
