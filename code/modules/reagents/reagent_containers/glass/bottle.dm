@@ -3,7 +3,9 @@
 
 /obj/item/weapon/reagent_containers/glass/bottle
 	name = "bottle"
-	desc = "A small bottle."
+	case = ("стеклянный пузырёк", "стеклянного пузырька", "стеклянному пузырьку", "стеклянным пузырьком", "стеклянном пузырьке")
+	desc = "Маленький стеклянный пузырёк."
+	gender = female
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
 	item_state = "bottle1"
