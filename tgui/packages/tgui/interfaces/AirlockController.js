@@ -24,13 +24,13 @@ export const AirlockController = (props, context) => {
           icon="eject"
           content="Cycle to Exterior"
           onClick={() => act('exterior_status')}
-          disabled={processing}
+          disabled={!!processing}
         />
         <Button
           icon="eject"
           content="Cycle to Interior"
           onClick={() => act('interior_status')}
-          disabled={processing}
+          disabled={!!processing}
         />
       </Window.Content>
     </Window>
