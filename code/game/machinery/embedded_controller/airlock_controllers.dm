@@ -74,7 +74,7 @@
 /obj/machinery/embedded_controller/radio/airlock_controller/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AirlockControllerInterface", name)
+		ui = new(user, src, "AirlockController", name)
 		ui.open()
 
 //Access controller for door control - used in virology and the like
