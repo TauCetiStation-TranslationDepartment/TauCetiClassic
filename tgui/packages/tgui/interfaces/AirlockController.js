@@ -12,7 +12,6 @@ export const AirlockController = (props, context) => {
   const { act, data } = useBackend(context);
   const { chamber_pressure, exterior_status, interior_status, processing } =
     data;
-  formatPower;
   return (
     <Window width={300} height={405}>
       <Window.Content>
