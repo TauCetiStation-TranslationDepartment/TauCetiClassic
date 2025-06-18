@@ -18,24 +18,22 @@ export const AirlockController = (props, context) => {
       <Window.Content>
         <LabeledList>
           <LabeledList.Item label="Pressure">
-            <AnimatedNumber value={chamber_pressure} />
-            {' kPa'}
+            <AnimatedNumber>
+              value={chamber_pressure}
+              {' kPa'}
+            </AnimatedNumber>
           </LabeledList.Item>
         </LabeledList>
-        <LabeledList>
-          <Button
-            icon="eject"
-            content="Cycle to Exterior"
-            onClick={() => act('exterior_status')}
-          />
-        </LabeledList>
-        <LabeledList>
-          <Button
-            icon="eject"
-            content="Cycle to Interior"
-            onClick={() => act('interior_status')}
-          />
-        </LabeledList>
+        <Button
+          icon="eject"
+          content="Cycle to Exterior"
+          onClick={() => act('exterior_status')}
+        />
+        <Button
+          icon="eject"
+          content="Cycle to Interior"
+          onClick={() => act('interior_status')}
+        />
       </Window.Content>
     </Window>
   );
