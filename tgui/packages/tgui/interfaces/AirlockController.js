@@ -1,4 +1,5 @@
 import { useBackend } from '../backend';
+import { Window } from '../layouts';
 import {
   Box,
   Section,
