@@ -14,7 +14,7 @@ export const AirlockController = (props, context) => {
   const { chamber_pressure, exterior_status, interior_status, processing } =
     data;
   return (
-    <Window width={300} height={405}>
+    <Window width={320} height={240}>
       <Window.Content>
         <LabeledList>
           <LabeledList.Item label="Pressure">
