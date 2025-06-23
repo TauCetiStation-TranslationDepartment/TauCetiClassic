@@ -18,7 +18,8 @@ export const AirlockController = (props, context) => {
       <Window.Content>
         <LabeledList>
           <LabeledList.Item label="Pressure">
-            <AnimatedNumber value={chamber_pressure}>{' kPa'}</AnimatedNumber>
+            <AnimatedNumber value={chamber_pressure} />
+            {' kPa'}
           </LabeledList.Item>
         </LabeledList>
         <Button
