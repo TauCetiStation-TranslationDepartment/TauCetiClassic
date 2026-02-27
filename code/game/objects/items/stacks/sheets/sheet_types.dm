@@ -12,8 +12,8 @@
  */
 var/global/list/datum/stack_recipe/metal_recipes = list (
 	new/datum/stack_recipe("Парикмахерское кресло", /obj/structure/stool/bed/chair/barber, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("Стул", /obj/structure/stool, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe_list("Металлические стулья", list(
+	new/datum/stack_recipe("Табуретка", /obj/structure/stool, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe_list("Стулья", list(
 		new/datum/stack_recipe("Серый стул", /obj/structure/stool/bed/chair/metal, max_per_place = 1, build_outline = TRUE),
 		new/datum/stack_recipe("Голубой стул", /obj/structure/stool/bed/chair/metal/blue, max_per_place = 1, build_outline = TRUE),
 		new/datum/stack_recipe("Красный стул", /obj/structure/stool/bed/chair/metal/red, max_per_place = 1, build_outline = TRUE),
