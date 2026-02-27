@@ -15,6 +15,8 @@
 
 	var/list/datum/stack_recipe/recipes
 	var/singular_name
+	var/plural_name
+	var/plurals_name
 	var/amount = 1
 	var/max_amount = 50                 // also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
 	var/merge_type = null               // This path and its children should merge with this stack, defaults to src.type
@@ -58,14 +60,16 @@
 	..()
 	if(src in view(1, user))
 		if(get_amount() > 1)
-			to_chat(user, "There are [get_amount()] [get_stack_name()] in the stack.")
+			to_chat(user, "В стопке [get_amount()] [get_stack_name()].")
 		else
-			to_chat(user, "There is [get_amount()] [get_stack_name()] in the stack.")
+			to_chat(user, "В стопке [get_amount()] [get_stack_name()].")
 
 /obj/item/stack/proc/get_stack_name()
 	if(singular_name)
 		if(get_amount() > 1)
-			return "[singular_name]\s"
+			return "[plural_name]"
+		if(get_amount() > 5)
+			return "[plurals_name]"
 		else
 			return "[singular_name]"
 	else

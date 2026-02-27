@@ -11,93 +11,96 @@
  * Metal
  */
 var/global/list/datum/stack_recipe/metal_recipes = list (
-	new/datum/stack_recipe("barber chair", /obj/structure/stool/bed/chair/barber, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("stool", /obj/structure/stool, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe_list("metal chairs", list(
-		new/datum/stack_recipe("grey chair", /obj/structure/stool/bed/chair/metal, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("blue chair", /obj/structure/stool/bed/chair/metal/blue, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("red chair", /obj/structure/stool/bed/chair/metal/red, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("green chair", /obj/structure/stool/bed/chair/metal/green, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("black chair", /obj/structure/stool/bed/chair/metal/black, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("white chair", /obj/structure/stool/bed/chair/metal/white, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("yellow chair", /obj/structure/stool/bed/chair/metal/yellow, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Парикмахерское кресло", /obj/structure/stool/bed/chair/barber, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Стул", /obj/structure/stool, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe_list("Металлические стулья", list(
+		new/datum/stack_recipe("Серый стул", /obj/structure/stool/bed/chair/metal, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Голубой стул", /obj/structure/stool/bed/chair/metal/blue, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Красный стул", /obj/structure/stool/bed/chair/metal/red, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Зелёный стул", /obj/structure/stool/bed/chair/metal/green, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Чёрный стул", /obj/structure/stool/bed/chair/metal/black, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Белый стул", /obj/structure/stool/bed/chair/metal/white, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Жёлтый стул", /obj/structure/stool/bed/chair/metal/yellow, max_per_place = 1, build_outline = TRUE),
 		), 1),
-	new/datum/stack_recipe("bed", /obj/structure/stool/bed, 2, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Кровать", /obj/structure/stool/bed, 2, max_per_place = 1, build_outline = TRUE),
 	null,
-	new/datum/stack_recipe_list("office chairs",list(
-		new/datum/stack_recipe("dark office chair", /obj/structure/stool/bed/chair/office/dark, 5, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("light office chair", /obj/structure/stool/bed/chair/office/light, 5, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe_list("Офисные кресла",list(
+		new/datum/stack_recipe("Темное офисное кресло", /obj/structure/stool/bed/chair/office/dark, 5, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Светлое офисное кресло", /obj/structure/stool/bed/chair/office/light, 5, max_per_place = 1, build_outline = TRUE),
 		), 5),
-	new/datum/stack_recipe_list("comfy chairs", list(
-		new/datum/stack_recipe("black comfy chair", /obj/structure/stool/bed/chair/comfy/black, 2, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("beige comfy chair", /obj/structure/stool/bed/chair/comfy/white, 2, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("brown comfy chair", /obj/structure/stool/bed/chair/comfy/brown, 2, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("lime comfy chair", /obj/structure/stool/bed/chair/comfy/lime, 2, max_per_place = 1, build_outline = TRUE),
-		new/datum/stack_recipe("teal comfy chair", /obj/structure/stool/bed/chair/comfy/green, 2, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe_list("Уютные кресла", list(
+		new/datum/stack_recipe("Черное уютное кресло", /obj/structure/stool/bed/chair/comfy/black, 2, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Бежевое уютное кресло", /obj/structure/stool/bed/chair/comfy/white, 2, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Коричневое уютное кресло", /obj/structure/stool/bed/chair/comfy/brown, 2, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Лаймовое уютное кресло", /obj/structure/stool/bed/chair/comfy/lime, 2, max_per_place = 1, build_outline = TRUE),
+		new/datum/stack_recipe("Бирюзовое уютное кресло", /obj/structure/stool/bed/chair/comfy/green, 2, max_per_place = 1, build_outline = TRUE),
 		), 2),
-	new/datum/stack_recipe_list("Cabinets", list(
-			new/datum/stack_recipe("Light filling cabinet", /obj/structure/filingcabinet/filingcabinet, 4, time = 15, max_per_place = 1, build_outline = TRUE),
-			new/datum/stack_recipe("Dark filling cabinet", /obj/structure/filingcabinet, 4, time = 15, max_per_place = 1, build_outline = TRUE),
-			new/datum/stack_recipe("Light chest drawer", /obj/structure/filingcabinet/chestdrawer, 4, time = 15, max_per_place = 1, build_outline = TRUE),
-			new/datum/stack_recipe("Dark chest drawer", /obj/structure/filingcabinet/chestdrawer/black, 4, time = 15, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe_list("Шкафы", list(
+			new/datum/stack_recipe("Светлый шкаф для документов.", /obj/structure/filingcabinet/filingcabinet, 4, time = 15, max_per_place = 1, build_outline = TRUE),
+			new/datum/stack_recipe("Тёмный шкаф для документов.", /obj/structure/filingcabinet, 4, time = 15, max_per_place = 1, build_outline = TRUE),
+			new/datum/stack_recipe("Светлый выдвижной ящик", /obj/structure/filingcabinet/chestdrawer, 4, time = 15, max_per_place = 1, build_outline = TRUE),
+			new/datum/stack_recipe("Тёмный выдвижной ящик", /obj/structure/filingcabinet/chestdrawer/black, 4, time = 15, max_per_place = 1, build_outline = TRUE),
 		), 4),
 	null,
-	new/datum/stack_recipe("table parts", /obj/item/weapon/table_parts, 2),
-	new/datum/stack_recipe("rack parts", /obj/item/weapon/rack_parts),
-	new/datum/stack_recipe("closet", /obj/structure/closet, 2, time = 15, max_per_place = 1, build_outline = TRUE,  required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
+	new/datum/stack_recipe("Детали стола", /obj/item/weapon/table_parts, 2),
+	new/datum/stack_recipe("Детали стеллажа", /obj/item/weapon/rack_parts),
+	new/datum/stack_recipe("Персональный шкафчик", /obj/structure/closet, 2, time = 15, max_per_place = 1, build_outline = TRUE,  required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
 	null,
-	new/datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe("Канистра", /obj/machinery/portable_atmospherics/canister, 10, time = 15, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
 	null,
-	new/datum/stack_recipe("floor tile", /obj/item/stack/tile/plasteel, 1, 4, 20, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
-	new/datum/stack_recipe("grid floor tile", /obj/item/stack/tile/grid, 1, 4, 20, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
-	new/datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
+	new/datum/stack_recipe("Напольная плитка", /obj/item/stack/tile/plasteel, 1, 4, 20, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
+	new/datum/stack_recipe("Решетчатая плитка для пола", /obj/item/stack/tile/grid, 1, 4, 20, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
+	new/datum/stack_recipe("Железный стержень", /obj/item/stack/rods, 1, 2, 60, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
 	null,
-	new/datum/stack_recipe("computer frame", /obj/structure/computerframe, 5, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-	new/datum/stack_recipe("wall girders", /obj/structure/girder, 2, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED)),
-	new/datum/stack_recipe("machine frame", /obj/machinery/constructable_frame/machine_frame, 5, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-	new/datum/stack_recipe("turret frame", /obj/machinery/porta_turret_construct, 5, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe("Компьютерный корпус", /obj/structure/computerframe, 5, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe("Стеновые балки", /obj/structure/girder, 2, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED)),
+	new/datum/stack_recipe("Машинная рама", /obj/machinery/constructable_frame/machine_frame, 5, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe("Корпус турели", /obj/machinery/porta_turret_construct, 5, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
 	null,
-	new/datum/stack_recipe_list("airlock assemblies", list(
-		new/datum/stack_recipe("standard airlock assembly", /obj/structure/door_assembly, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("command airlock assembly", /obj/structure/door_assembly/door_assembly_com, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("security airlock assembly", /obj/structure/door_assembly/door_assembly_sec, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("engineering airlock assembly", /obj/structure/door_assembly/door_assembly_eng, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("mining airlock assembly", /obj/structure/door_assembly/door_assembly_min, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("atmospherics airlock assembly", /obj/structure/door_assembly/door_assembly_atmo, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("research airlock assembly", /obj/structure/door_assembly/door_assembly_research, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe_list("Каркас шлюза", list(
+		new/datum/stack_recipe("Стандартный каркас шлюза", /obj/structure/door_assembly, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для отдела командования", /obj/structure/door_assembly/door_assembly_com, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для отдела охраны", /obj/structure/door_assembly/door_assembly_sec, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для инженерного отдела", /obj/structure/door_assembly/door_assembly_eng, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для отдела снабжения", /obj/structure/door_assembly/door_assembly_min, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для атмосферного отсека", /obj/structure/door_assembly/door_assembly_atmo, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для отдела ОИР", /obj/structure/door_assembly/door_assembly_research, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
 /*		new/datum/stack_recipe("science airlock assembly", /obj/structure/door_assembly/door_assembly_science, 4, time = 50, max_per_place = 1, build_outline = TRUE), \ */
-		new/datum/stack_recipe("medical airlock assembly", /obj/structure/door_assembly/door_assembly_med, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("maintenance airlock assembly", /obj/structure/door_assembly/door_assembly_mai, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("external airlock assembly", /obj/structure/door_assembly/door_assembly_ext, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("freezer airlock assembly", /obj/structure/door_assembly/door_assembly_fre, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("airtight hatch assembly", /obj/structure/door_assembly/door_assembly_hatch, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("maintenance hatch assembly", /obj/structure/door_assembly/door_assembly_mhatch, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("emergency shutter", /obj/structure/firedoor_assembly, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-		new/datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для медицинского отдела", /obj/structure/door_assembly/door_assembly_med, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для техтонелля", /obj/structure/door_assembly/door_assembly_mai, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас для внешнего шлюза", /obj/structure/door_assembly/door_assembly_ext, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас шлюза для морозильной камеры", /obj/structure/door_assembly/door_assembly_fre, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас для герметичного шлюза", /obj/structure/door_assembly/door_assembly_hatch, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас для герметичного шлюза техтонелля", /obj/structure/door_assembly/door_assembly_mhatch, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас для защищенного шлюза охраны", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Аварийный затвор", /obj/structure/firedoor_assembly, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+		new/datum/stack_recipe("Каркас для двойного шлюза", /obj/structure/door_assembly/multi_tile, 4, time = 50, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
 		), 4),
 	null,
-	new/datum/stack_recipe("meatspike frame", /obj/structure/kitchenspike_frame, 5, time = 25, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)), null,
-	new/datum/stack_recipe("grenade casing", /obj/item/weapon/grenade/chem_grenade, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED)),
-	new/datum/stack_recipe("light fixture frame", /obj/item/light_fixture_frame, 2, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
-	new/datum/stack_recipe("small light fixture frame", /obj/item/light_fixture_frame/small, 1, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
+	new/datum/stack_recipe("Рамка для насадки на мясорубку", /obj/structure/kitchenspike_frame, 5, time = 25, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)), null,
+	new/datum/stack_recipe("корпус гранаты", /obj/item/weapon/grenade/chem_grenade, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED)),
+	new/datum/stack_recipe("Каркас светильника", /obj/item/light_fixture_frame, 2, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
+	new/datum/stack_recipe("Небольшой каркас светильника", /obj/item/light_fixture_frame/small, 1, required_skills = list(/datum/skill/construction = SKILL_LEVEL_NOVICE)),
 	null,
-	new/datum/stack_recipe("apc frame", /obj/item/apc_frame, 2, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-	new/datum/stack_recipe("air alarm frame", /obj/item/alarm_frame, 2, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-	new/datum/stack_recipe("fire alarm frame", /obj/item/firealarm_frame, 2, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-	new/datum/stack_recipe("door control frame", /obj/item/door_control_frame, 1, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
-	new/datum/stack_recipe("metal picture frame", /obj/item/weapon/picture_frame/metal, 1, time = 15),
+	new/datum/stack_recipe("Рамка электрического щита", /obj/item/apc_frame, 2, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe("Рамка воздушной сигнализации", /obj/item/alarm_frame, 2, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe("Рамка пожарной сигнализации", /obj/item/firealarm_frame, 2, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe("Рамка управления дверьми", /obj/item/door_control_frame, 1, required_skills = list(/datum/skill/construction = SKILL_LEVEL_PRO)),
+	new/datum/stack_recipe("Металлическая рамка для картины", /obj/item/weapon/picture_frame/metal, 1, time = 15),
 	null,
-	new/datum/stack_recipe("metal door", /obj/structure/mineral_door/metal, 20, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED)),
-	new/datum/stack_recipe("windowsill", /obj/structure/windowsill, 2, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED), time = 20),
-	new/datum/stack_recipe("fence", /obj/structure/fence/metal, 2, time = 25, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("linen bin", /obj/structure/bedsheetbin, 2, max_per_place = 1, build_outline = TRUE)
+	new/datum/stack_recipe("металлическая дверь", /obj/structure/mineral_door/metal, 20, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED)),
+	new/datum/stack_recipe("Подоконник", /obj/structure/windowsill, 2, max_per_place = 1, build_outline = TRUE, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED), time = 20),
+	new/datum/stack_recipe("Забор", /obj/structure/fence/metal, 2, time = 25, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Ящик для белья", /obj/structure/bedsheetbin, 2, max_per_place = 1, build_outline = TRUE)
 )
 
 /obj/item/stack/sheet/metal
 	name = "metal"
-	desc = "Sheets made out off metal. It has been dubbed Metal Sheets."
-	singular_name = "metal sheet"
+	cases = list("металл", "металла", "металлу", "металл", "металлом", "металле")
+	desc = "Обычные листы металла.Но звучат почему-то тяжелее, чем должны..."
+	singular_name = "лист металла"
+	plural_name = "листа металла"
+	plurals_name = "листов металла"
 	icon_state = "sheet-metal"
 	hitsound = list('sound/items/trayhit2.ogg')
 	m_amt = 3750
@@ -107,8 +110,11 @@ var/global/list/datum/stack_recipe/metal_recipes = list (
 
 /obj/item/stack/sheet/metal/cyborg
 	name = "metal"
-	desc = "Sheets made out off metal. It has been dubbed Metal Sheets."
-	singular_name = "metal sheet"
+	cases = list("металл", "металла", "металлу", "металл", "металлом", "металле")
+	desc = "Обычные листы металла.Но звучат почему-то тяжелее, чем должны..."
+	singular_name = "лист металла"
+	plural_name = "листа металла"
+	plurals_name = "листов металла"
 	icon_state = "sheet-metal"
 	m_amt = 0
 	throwforce = 5.0
@@ -122,14 +128,17 @@ var/global/list/datum/stack_recipe/metal_recipes = list (
  * Plasteel
  */
 var/global/list/datum/stack_recipe/plasteel_recipes = list ( \
-	new/datum/stack_recipe("AI core", /obj/structure/AIcore, 4, time = 50, max_per_place = 1, required_skills = list(/datum/skill/construction = SKILL_LEVEL_MASTER)), \
-	new/datum/stack_recipe("Metal crate", /obj/structure/closet/crate, 10, time = 50, max_per_place = 1, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED)), \
+	new/datum/stack_recipe("Ядро ИИ", /obj/structure/AIcore, 4, time = 50, max_per_place = 1, required_skills = list(/datum/skill/construction = SKILL_LEVEL_MASTER)), \
+	new/datum/stack_recipe("Металлический ящик", /obj/structure/closet/crate, 10, time = 50, max_per_place = 1, required_skills = list(/datum/skill/construction = SKILL_LEVEL_TRAINED)), \
 	)
 
 /obj/item/stack/sheet/plasteel
 	name = "plasteel"
-	singular_name = "plasteel sheet"
-	desc = "This sheet is an alloy of steel and platinum."
+	cases = list("пласталь", "пластали", "пластали", "пласталь", "пласталью", "пластали")
+	desc = "Этот лист представляет собой сплав стали и платины."
+	singular_name = "лист пластали"
+	plural_name = "листа пластали"
+	plurals_name = "листов пластали"
 	icon_state = "sheet-plasteel"
 	item_state = "sheet-metal"
 	m_amt = 7500
@@ -145,38 +154,44 @@ var/global/list/datum/stack_recipe/plasteel_recipes = list ( \
  * Wood
  */
 var/global/list/datum/stack_recipe/wood_recipes = list (
-	new/datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandal, 1),
-	new/datum/stack_recipe("condiment shelf", /obj/item/weapon/condiment_shelf, 5, time = 15),
-	new/datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20),
-	new/datum/stack_recipe("table parts", /obj/item/weapon/table_parts/wood, 2),
-	new/datum/stack_recipe("fancy table parts", /obj/item/weapon/table_parts/wood/fancy, 2),
-	new/datum/stack_recipe("black fancy table parts", /obj/item/weapon/table_parts/wood/fancy/black, 2),
-	new/datum/stack_recipe("wooden chair", /obj/structure/stool/bed/chair/wood/normal, 3, time = 10, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("wooden barricade", /obj/structure/barricade/wooden, 5, time = 50, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("wooden door", /obj/structure/mineral_door/wood, 10, time = 20, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("bonfire", /obj/structure/bonfire/dynamic, 10, time = 20, max_per_place = 1, build_outline = TRUE, floor_path = list(/turf/simulated/floor, /turf/environment/snow)),
-	new/datum/stack_recipe("wooden noticeboard", /obj/item/noticeboard_frame/wood, 10, time = 20, build_outline = TRUE),
-	new/datum/stack_recipe("coffin", /obj/structure/closet/coffin, 5, time = 15, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("wooden picture frame", /obj/item/weapon/picture_frame/wooden, 1, time = 15),
-	new/datum/stack_recipe("painting frame", /obj/item/painting_frame, 2, time = 15),
-	new/datum/stack_recipe("display case chassis", /obj/structure/displaycase_chassis, 5, time = 2 SECONDS, max_per_place = 1, build_outline = TRUE), \
-	new/datum/stack_recipe("painting easel", /obj/structure/easel, 4, time = 15, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("grave marker", /obj/structure/gravemarker/cross, 2, time = 5, max_per_place = 1, build_outline = TRUE),
-	new/datum/stack_recipe("fence", /obj/structure/fence/wood, 2, time = 25, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Сандали", /obj/item/clothing/shoes/sandal, 1),
+	new/datum/stack_recipe("Полка для приправ", /obj/item/weapon/condiment_shelf, 5, time = 15),
+	new/datum/stack_recipe("Напольная плитка", /obj/item/stack/tile/wood, 1, 4, 20),
+	new/datum/stack_recipe("Детали стола", /obj/item/weapon/table_parts/wood, 2),
+	new/datum/stack_recipe("Детали украшенного стола", /obj/item/weapon/table_parts/wood/fancy, 2),
+	new/datum/stack_recipe("Детали черного украшенного стола", /obj/item/weapon/table_parts/wood/fancy/black, 2),
+	new/datum/stack_recipe("Стул", /obj/structure/stool/bed/chair/wood/normal, 3, time = 10, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Баррикада", /obj/structure/barricade/wooden, 5, time = 50, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Дверь", /obj/structure/mineral_door/wood, 10, time = 20, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Костёр", /obj/structure/bonfire/dynamic, 10, time = 20, max_per_place = 1, build_outline = TRUE, floor_path = list(/turf/simulated/floor, /turf/environment/snow)),
+	new/datum/stack_recipe("Доска объявлений", /obj/item/noticeboard_frame/wood, 10, time = 20, build_outline = TRUE),
+	new/datum/stack_recipe("Гроб", /obj/structure/closet/coffin, 5, time = 15, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Рамка для картины", /obj/item/weapon/picture_frame/wooden, 1, time = 15),
+	new/datum/stack_recipe("Рамка для Рисования", /obj/item/painting_frame, 2, time = 15),
+	new/datum/stack_recipe("Корпус витрины", /obj/structure/displaycase_chassis, 5, time = 2 SECONDS, max_per_place = 1, build_outline = TRUE), \
+	new/datum/stack_recipe("Мольберт для рисования", /obj/structure/easel, 4, time = 15, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Могильный крест", /obj/structure/gravemarker/cross, 2, time = 5, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Забор", /obj/structure/fence/wood, 2, time = 25, max_per_place = 1, build_outline = TRUE),
 //	new/datum/stack_recipe("apiary", /obj/item/apiary, 10, time = 25, max_per_place = FALSE, build_outline = FALSE)
 	)
 
 /obj/item/stack/sheet/wood
 	name = "wooden plank"
-	desc = "One can only guess that this is a bunch of wood."
-	singular_name = "wood plank"
+	cases = list("деревянная доска", "деревянной доски", "деревянной доске", "деревянную доску", "деревянной доской", "деревянной доске")
+	desc = "Можно только догадываться, что это связка дров."
+	singular_name = "деревянная доска"
+	plural_name = "деревянные доски"
+	plurals_name = "деревянных досков"
 	icon_state = "sheet-wood"
 	origin_tech = "materials=1;biotech=1"
 
 /obj/item/stack/sheet/wood/cyborg
 	name = "wooden plank"
-	desc = "One can only guess that this is a bunch of wood."
-	singular_name = "wood plank"
+	cases = list("деревянная доска", "деревянной доски", "деревянной доске", "деревянную доску", "деревянной доской", "деревянной доске")
+	desc = "Можно только догадываться, что это связка дров."
+	singular_name = "деревянная доска"
+	plural_name = "деревянные доски"
+	plurals_name = "деревянных досков"
 	icon_state = "sheet-wood"
 
 /obj/item/stack/sheet/wood/atom_init()
@@ -187,24 +202,27 @@ var/global/list/datum/stack_recipe/wood_recipes = list (
  * Cloth
  */
 var/global/list/datum/stack_recipe/cloth_recipes = list (
-	new/datum/stack_recipe("rags", /obj/item/stack/medical/bruise_pack/rags/not_old, 1, 5, 25, 15),
+	new/datum/stack_recipe("марля", /obj/item/stack/medical/bruise_pack/rags/not_old, 1, 5, 25, 15),
 	null,
-	new/datum/stack_recipe("19x19 canvas", /obj/item/canvas/nineteen_nineteen, 3, time = 30),
-	new/datum/stack_recipe("23x19 canvas", /obj/item/canvas/twentythree_nineteen, 4, time = 30),
-	new/datum/stack_recipe("23x23 canvas", /obj/item/canvas/twentythree_twentythree, 5, time = 30),
+	new/datum/stack_recipe("19x19 рамка", /obj/item/canvas/nineteen_nineteen, 3, time = 30),
+	new/datum/stack_recipe("23x19 рамка", /obj/item/canvas/twentythree_nineteen, 4, time = 30),
+	new/datum/stack_recipe("23x23 рамка", /obj/item/canvas/twentythree_twentythree, 5, time = 30),
 	)
 
 var/global/list/datum/stack_recipe/old_cloth_recipes = list (
-	new/datum/stack_recipe("rags", /obj/item/stack/medical/bruise_pack/rags/old, 1, 5, 25, 15),
+	new/datum/stack_recipe("марля", /obj/item/stack/medical/bruise_pack/rags/old, 1, 5, 25, 15),
 	null,
-	new/datum/stack_recipe("19x19 canvas", /obj/item/canvas/nineteen_nineteen, 3, time = 30),
-	new/datum/stack_recipe("23x19 canvas", /obj/item/canvas/twentythree_nineteen, 4, time = 30),
-	new/datum/stack_recipe("23x23 canvas", /obj/item/canvas/twentythree_twentythree, 5, time = 30),
+	new/datum/stack_recipe("19x19 рамка", /obj/item/canvas/nineteen_nineteen, 3, time = 30),
+	new/datum/stack_recipe("23x19 рамка", /obj/item/canvas/twentythree_nineteen, 4, time = 30),
+	new/datum/stack_recipe("23x23 рамка", /obj/item/canvas/twentythree_twentythree, 5, time = 30),
 	)
 /obj/item/stack/sheet/cloth
 	name = "cloth"
-	desc = "This roll of cloth is made from only the finest chemicals and bunny rabbits."
-	singular_name = "cloth roll"
+	cases = list("ткань", "ткани", "ткани", "ткань", "тканью", "ткани")
+	desc = "Этот рулон ткани изготовлен только из лучших химикатов и кроличьих шкурок."
+	singular_name = "рулон ткани"
+	plural_name = "рулона ткани"
+	plurals_name = "рулонов ткани"
 	icon_state = "sheet-cloth"
 	origin_tech = "materials=2"
 
@@ -219,33 +237,36 @@ var/global/list/datum/stack_recipe/old_cloth_recipes = list (
  * Cardboard
  */
 var/global/list/datum/stack_recipe/cardboard_recipes = list ( \
-	new/datum/stack_recipe("box", /obj/item/weapon/storage/box), \
-	new/datum/stack_recipe("shotgun shell box", /obj/item/weapon/storage/box/shotgun), \
-	new/datum/stack_recipe("light tubes", /obj/item/weapon/storage/box/lights/tubes), \
-	new/datum/stack_recipe("light bulbs", /obj/item/weapon/storage/box/lights/bulbs), \
-	new/datum/stack_recipe("cardboard tube", /obj/item/weapon/c_tube), \
-	new/datum/stack_recipe("mouse traps", /obj/item/weapon/storage/box/mousetraps), \
-	new/datum/stack_recipe("cardborg suit", /obj/item/clothing/suit/cardborg, 3), \
-	new/datum/stack_recipe("cardborg helmet", /obj/item/clothing/head/cardborg), \
-	new/datum/stack_recipe("pizza box", /obj/item/pizzabox), \
+	new/datum/stack_recipe("Коробка", /obj/item/weapon/storage/box), \
+	new/datum/stack_recipe("Коробка с патронами для дробовика", /obj/item/weapon/storage/box/shotgun), \
+	new/datum/stack_recipe("Коробка для люминесцентных ламп", /obj/item/weapon/storage/box/lights/tubes), \
+	new/datum/stack_recipe("Коробка для электрических лампочек", /obj/item/weapon/storage/box/lights/bulbs), \
+	new/datum/stack_recipe("Картонная трубка", /obj/item/weapon/c_tube), \
+	new/datum/stack_recipe("Мышеловка", /obj/item/weapon/storage/box/mousetraps), \
+	new/datum/stack_recipe("Картонный костюм робота", /obj/item/clothing/suit/cardborg, 3), \
+	new/datum/stack_recipe("Картоный шлем робота", /obj/item/clothing/head/cardborg), \
+	new/datum/stack_recipe("Коробка пиццы", /obj/item/pizzabox), \
 	null, \
-	new/datum/stack_recipe_list("folders",list( \
-		new/datum/stack_recipe("blue folder", /obj/item/weapon/folder/blue), \
-		new/datum/stack_recipe("grey folder", /obj/item/weapon/folder), \
-		new/datum/stack_recipe("red folder", /obj/item/weapon/folder/red), \
-		new/datum/stack_recipe("white folder", /obj/item/weapon/folder/white), \
-		new/datum/stack_recipe("yellow folder", /obj/item/weapon/folder/yellow), \
-		new/datum/stack_recipe("green folder", /obj/item/weapon/folder/green), \
-		new/datum/stack_recipe("brown folder", /obj/item/weapon/folder/brown), \
-		new/datum/stack_recipe("pink folder", /obj/item/weapon/folder/pink), \
-		new/datum/stack_recipe("purple folder", /obj/item/weapon/folder/purple), \
+	new/datum/stack_recipe_list("Папки",list( \
+		new/datum/stack_recipe("Голубая папка", /obj/item/weapon/folder/blue), \
+		new/datum/stack_recipe("Серая папка", /obj/item/weapon/folder), \
+		new/datum/stack_recipe("Красная папка", /obj/item/weapon/folder/red), \
+		new/datum/stack_recipe("Белая папка", /obj/item/weapon/folder/white), \
+		new/datum/stack_recipe("Жёлтая папка", /obj/item/weapon/folder/yellow), \
+		new/datum/stack_recipe("Зелёная папка", /obj/item/weapon/folder/green), \
+		new/datum/stack_recipe("Коричневая папка", /obj/item/weapon/folder/brown), \
+		new/datum/stack_recipe("Розовая папка", /obj/item/weapon/folder/pink), \
+		new/datum/stack_recipe("Фиолетовая папка", /obj/item/weapon/folder/purple), \
 		)) \
 )
 
 /obj/item/stack/sheet/cardboard	//BubbleWrap
 	name = "cardboard"
-	desc = "Large sheets of card, like boxes folded flat."
-	singular_name = "cardboard sheet"
+	cases = list("картон", "картона", "картону", "картон", "картоном", "картоне")
+	desc = "Большие листы картона, похожие на коробки, сложенные плашмя."
+	singular_name = "лист картон"
+	plural_name = "листа картона"
+	plurals_name = "листов картона"
 	icon_state = "sheet-card"
 	origin_tech = "materials=1"
 
@@ -258,17 +279,20 @@ var/global/list/datum/stack_recipe/cardboard_recipes = list ( \
 
 
 var/global/list/datum/stack_recipe/sandbag_recipes = list ( \
-	new/datum/stack_recipe("fence", /obj/structure/fence/sandbags, 1, time = 25, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Укрытие из мешков с песком", /obj/structure/fence/sandbags, 1, time = 25, max_per_place = 1, build_outline = TRUE),
 )
 
 var/global/list/datum/stack_recipe/green_sandbag_recipes = list ( \
-	new/datum/stack_recipe("fence", /obj/structure/fence/sandbags/green, 1, time = 25, max_per_place = 1, build_outline = TRUE),
+	new/datum/stack_recipe("Укрытие из мешков с песком", /obj/structure/fence/sandbags/green, 1, time = 25, max_per_place = 1, build_outline = TRUE),
 )
 
 /obj/item/stack/sheet/sandbag	//Sandbags
 	name = "sandbag"
+	cases = list("мешок с песком", "мешка с песком", "мешку с песком", "мешок с песком", "мешком с песком", "мешке с песком")
 	desc = "Мешок с песком."
 	singular_name = "мешок с песком"
+	plural_name = "мешкки с песком"
+	plurals_name = "мешков с песком"
 	icon_state = "sheet-sandbag"
 	origin_tech = "materials=1"
 
@@ -284,6 +308,8 @@ var/global/list/datum/stack_recipe/green_sandbag_recipes = list ( \
 	name = "sandbag"
 	desc = "Мешок с песком."
 	singular_name = "мешок с песком"
+	plural_name = "мешка с песком"
+	plurals_name = "мешков с песком"
 	icon_state = "sheet-sandbag_green"
 	origin_tech = "materials=1"
 
