@@ -4,11 +4,11 @@
 	message_1p = "Вы хнычете."
 	message_3p = "хнычет."
 
-	message_impaired_production = "издает слабый шум."
+	message_impaired_production = "издаёт слабый шум."
 	message_impaired_reception = "делает печальное лицо."
 
 	message_miming = "хнычет."
-	message_muzzled = "издает слабый шум."
+	message_muzzled = "издаёт слабый шум."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -22,10 +22,10 @@
 	message_1p = "Вы рычите!"
 	message_3p = "рычит!"
 
-	message_impaired_production = "издает громкий шум!"
+	message_impaired_production = "издаёт громкий шум!"
 
-	message_miming = "издает рев!"
-	message_muzzled = "издает громкий шум!"
+	message_miming = "издаёт рев!"
+	message_muzzled = "издаёт громкий шум!"
 
 	message_type = SHOWMSG_AUDIO
 
@@ -45,7 +45,7 @@
 	message_impaired_reception = "яростно втягивает воздух!"
 
 	message_miming = "выглядит так, будто задыхается!"
-	message_muzzled = "издает слабый шум."
+	message_muzzled = "издаёт слабый шум."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -61,10 +61,10 @@
 	message_1p = "Вы задыхаетесь."
 	message_3p = "задыхается."
 
-	message_impaired_production = "издает громкий шум."
+	message_impaired_production = "издаёт громкий шум."
 
 	message_miming = "задыхается."
-	message_muzzled = "издает громкий шум."
+	message_muzzled = "издаёт громкий шум."
 
 	message_type = SHOWMSG_AUDIO
 

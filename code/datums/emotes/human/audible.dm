@@ -99,7 +99,7 @@
 	message_impaired_production = "корчится и тихо пристанывает."
 
 	message_miming = "изображает боль"
-	message_muzzled = "издает слабый шум"
+	message_muzzled = "издаёт слабый шум"
 
 	message_type = SHOWMSG_AUDIO
 
@@ -143,7 +143,7 @@
 	message_impaired_production = "мучаясь кривит лицо!"
 
 	message_miming = "изображает крик!"
-	message_muzzled = "издает громкое мычание!"
+	message_muzzled = "издаёт громкое мычание!"
 
 	message_type = SHOWMSG_AUDIO
 
@@ -200,7 +200,7 @@
 	message_1p = "Вы икаете."
 	message_3p = "икает."
 
-	message_impaired_production = "издает слаыбй шум."
+	message_impaired_production = "издаёт слаыбй шум."
 
 	message_miming = "изображает икоту."
 	message_muzzled = "издаёт слабый шум."
@@ -282,7 +282,7 @@
 	message_1p = "Вы чихнули."
 	message_3p = "чихает."
 
-	message_impaired_production = "издает странный звук."
+	message_impaired_production = "издаёт странный звук."
 	message_impaired_reception = "чихает."
 
 	message_miming = "чихает."
