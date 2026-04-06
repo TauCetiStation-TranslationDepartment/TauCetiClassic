@@ -1,10 +1,10 @@
 /datum/emote/robot/deathgasp
 	key = "deathgasp"
 
-	message_1p = "You shudder violently for a moment, then become motionless, your eyes slowly darkening..."
-	message_3p = "shudders violently for a moment, then becomes motionless, it's eyes slowly darkening..."
+	message_1p = "На мгновение вы сильно вздрагиваете, затем застываете неподвижно, ваши глаза медленно темнеют..."
+	message_3p = "На мгновение сильно вздрагивает, затем застывает неподвижно, их глаза медленно темнеют..."
 
-	message_impaired_reception = "You hear a shuddering."
+	message_impaired_reception = "Вы слышите как содрагается."
 
 	message_type = SHOWMSG_VISUAL
 
@@ -14,8 +14,8 @@
 /datum/emote/robot/bow
 	key = "bow"
 
-	message_1p = "You bow."
-	message_3p = "bows."
+	message_1p = "Вы кланяетесь."
+	message_3p = "кланяется."
 
 	message_type = SHOWMSG_VISUAL
 

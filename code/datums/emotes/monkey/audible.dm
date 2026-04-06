@@ -1,8 +1,8 @@
 /datum/emote/nymph/chirp
 	key = "chirp"
 
-	message_1p = "You chirp."
-	message_3p = "chirps!"
+	message_1p = "Вы щебечете."
+	message_3p = "щебечет!"
 
 	message_type = SHOWMSG_AUDIO
 

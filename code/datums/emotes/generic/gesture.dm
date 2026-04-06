@@ -1,8 +1,8 @@
 /datum/emote/dance
 	key = "dance"
 
-	message_1p = "You dances!"
-	message_3p = "dances around."
+	message_1p = "Вы танцуете!"
+	message_3p = "танцует вокруге."
 
 	message_type = SHOWMSG_VISUAL
 

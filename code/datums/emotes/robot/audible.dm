@@ -1,14 +1,14 @@
 /datum/emote/robot/beep
 	key = "beep"
 
-	message_1p = "You beep."
-	message_3p = "beeps."
+	message_1p = "Вы издаёте биип."
+	message_3p = "издаёт биип."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт слабый звук."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -20,14 +20,14 @@
 /datum/emote/robot/ping
 	key = "ping"
 
-	message_1p = "You ping."
-	message_3p = "pings."
+	message_1p = "Вы издаёте пинг."
+	message_3p = "издаёт пинг."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт слабый звук."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -39,14 +39,14 @@
 /datum/emote/robot/buzz
 	key = "buzz"
 
-	message_1p = "You buzz."
-	message_3p = "buzzes."
+	message_1p = "Вы жужжите."
+	message_3p = "жужжит."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт слабый звук."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -58,14 +58,14 @@
 /datum/emote/robot/law
 	key = "law"
 
-	message_1p = "You show your legal authorization barcode."
-	message_3p = "shows it's legal authorization barcode."
+	message_1p = "Вы показываете свой официальный охранный значок в виде штрих-кода."
+	message_3p = "показывает, свой официальный охранный значок в виде штрих-кода."
 
-	message_impaired_production = "makes a noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт звук."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -77,7 +77,7 @@
 	var/mob/living/silicon/robot/R = user
 	if(!istype(R.module, /obj/item/weapon/robot_module/security))
 		if(intentional)
-			to_chat(R, "<span class='notice'>You do not have the required module for this emote.</span>")
+			to_chat(R, "<span class='notice'>У вас неактивирован необходимый модуль для этой эмоции.</span>")
 		return FALSE
 
 	return ..()
@@ -86,14 +86,14 @@
 /datum/emote/robot/confirm
 	key = "confirm"
 
-	message_1p = "You emits affirmative blip."
-	message_3p = "emits an affirmative blip."
+	message_1p = "Вы издаёте утвердительный сигнал."
+	message_3p = "издаёт утвердительный сигнал."
 
-	message_impaired_production = "makes a noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт звук."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -105,14 +105,14 @@
 /datum/emote/robot/deny
 	key = "deny"
 
-	message_1p = "You emits negative blip."
-	message_3p = "emits a negative blip."
+	message_1p = "Вы издаёте отрицательный сигнал."
+	message_3p = "издаёт отрицательный сигнал."
 
-	message_impaired_production = "makes a noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт звуки."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -124,14 +124,14 @@
 /datum/emote/robot/scary
 	key = "scary"
 
-	message_1p = "You emits disconcerting tone."
-	message_3p = "emits a disconcerting tone."
+	message_1p = "Вы эмитируете обескураживающий звук."
+	message_3p = "эмитирует обескураживающий звук."
 
-	message_impaired_production = "makes a noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт звуки."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -143,14 +143,14 @@
 /datum/emote/robot/woop
 	key = "woop"
 
-	message_1p = "You chirp happily."
-	message_3p = "chirps happily."
+	message_1p = "Вы радостно щебечете."
+	message_3p = "радостно щебечет."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт слабый звук."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -162,14 +162,14 @@
 /datum/emote/robot/boop
 	key = "boop"
 
-	message_1p = "You boop."
-	message_3p = "boops."
+	message_1p = "Вы издаёте бууп."
+	message_3p = "издаёт бууп."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт слабый звук."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -181,14 +181,14 @@
 /datum/emote/robot/robochirp
 	key = "chirp"
 
-	message_1p = "You chirp."
-	message_3p = "chirps."
+	message_1p = "Вы щебечете."
+	message_3p = "щебечет."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт слабый звук."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -200,14 +200,14 @@
 /datum/emote/robot/calling
 	key = "call"
 
-	message_1p = "You're dialing."
-	message_3p = "dialling."
+	message_1p = "Вы набираете номер."
+	message_3p = "набирает номер."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "flickers."
+	message_impaired_production = "издаёт звуки."
+	message_impaired_reception = "мерцает."
 
-	message_miming = "makes robot noises."
-	message_muzzled = "makes a weak noise."
+	message_miming = "издаёт роботизированные звуки."
+	message_muzzled = "издаёт слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
