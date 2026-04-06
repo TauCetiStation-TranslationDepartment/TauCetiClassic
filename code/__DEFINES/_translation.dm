@@ -81,8 +81,8 @@
 // "Внезапно у [THEM_RU2(src)] начинаются спазмы"
 #define THEM_RU2(atom) atom.gender == MALE && "него" \
                || atom.gender == FEMALE && "неё" \
-               || atom.gender == NEUTER && "них" \
-               || "их"
+               || atom.gender == NEUTER && "этого" \
+               || "них"
 
 // Т Кем/чем
 // "Вы пытаетесь ударить [BY_RU(src)]"
