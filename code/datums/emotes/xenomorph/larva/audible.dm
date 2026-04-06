@@ -1,8 +1,8 @@
 /datum/emote/larva/whimper
 	key = "whimper"
 
-	message_1p = "You whimper."
-	message_3p = "whimpers sadly."
+	message_1p = "Вы хнычите."
+	message_3p = "грустно хнычет."
 
 	message_muzzled = "сильно трясет и издаёт очень слабый звук."
 
