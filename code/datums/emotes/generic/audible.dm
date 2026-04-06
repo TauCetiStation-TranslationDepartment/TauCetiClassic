@@ -24,7 +24,7 @@
 
 	message_impaired_production = "издаёт громкий шум!"
 
-	message_miming = "издаёт рев!"
+	message_miming = "изображает рев!"
 	message_muzzled = "издаёт громкий шум!"
 
 	message_type = SHOWMSG_AUDIO
