@@ -300,13 +300,13 @@
 /datum/emote/human/gasp
 	key = "gasp"
 
-	message_1p = "Вы задыхаетесь!"
-	message_3p = "задыхается!"
+	message_1p = "Вы дышите с трудом!"
+	message_3p = "дышит с трудом!"
 
-	message_impaired_production = "жадно глотает воздух!"
-	message_impaired_reception = "жадно глотает воздух!"
+	message_impaired_production = "яростно втягивает воздух!"
+	message_impaired_reception = "яростно втягивает воздух!"
 
-	message_miming = "изображает асфиксию!"
+	message_miming = "выглядит так, будто задыхается!"
 	message_muzzled = "издаёт слабый шум."
 
 	message_type = SHOWMSG_AUDIO
