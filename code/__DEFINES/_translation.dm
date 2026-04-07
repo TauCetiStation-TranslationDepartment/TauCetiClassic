@@ -78,8 +78,8 @@
                || "их"
 
 // У Кого/чего
-// "Внезапно у [THEM_RU2(src)] начинаются спазмы"
-#define THEM_RU2(atom) atom.gender == MALE && "него" \
+// "Внезапно у [THEM2_RU(src)] начинаются спазмы"
+#define THEM2_RU(atom) atom.gender == MALE && "него" \
                || atom.gender == FEMALE && "неё" \
                || atom.gender == NEUTER && "этого" \
                || "них"

@@ -213,7 +213,7 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_BREATHE)
 
 /datum/emote/human/hiccup/get_impaired_msg(mob/user)
-	return "внезапно у [THEM_RU2(user)] начинаются спазмы когда [THEY_RU(user)] открывает рот."
+	return "внезапно у [THEM2_RU(user)] начинаются спазмы когда [THEY_RU(user)] открывает рот."
 
 
 /datum/emote/human/choke
