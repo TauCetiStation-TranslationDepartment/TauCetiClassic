@@ -42,7 +42,7 @@
 
 	message_impaired_production = "слегка улыбается и тихо хихикает."
 
-	message_miming = "изображает хохот."
+	message_miming = "изображает хихикание."
 	message_muzzled = "слегка хихикает."
 
 	message_type = SHOWMSG_AUDIO
@@ -380,7 +380,7 @@
 	required_stat = CONSCIOUS
 
 /datum/emote/human/hmm_think/get_impaired_msg(mob/user)
-	return "потирает [THEIR_RU(user)] подбородок задумчево..."
+	return "задумчиво потирает [THEIR_RU(user)] подбородок..."
 
 /datum/emote/human/hmm_think/get_sound(mob/living/carbon/human/user, intentional)
 	return get_sound_by_voice(user, SOUNDIN_HMM_THINK_MALE, SOUNDIN_HMM_THINK_FEMALE)

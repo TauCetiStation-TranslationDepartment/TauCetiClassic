@@ -2,7 +2,7 @@
 	key = "pray"
 
 	message_1p = "Вы молитесь."
-	message_3p = "молиться."
+	message_3p = "молится."
 
 	message_type = SHOWMSG_VISUAL
 

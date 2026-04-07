@@ -2,7 +2,7 @@
 	key = "dance"
 
 	message_1p = "Вы танцуете!"
-	message_3p = "танцует вокруге."
+	message_3p = "танцует."
 
 	message_type = SHOWMSG_VISUAL
 

@@ -61,10 +61,10 @@
 	message_1p = "Вы задыхаетесь."
 	message_3p = "задыхается."
 
-	message_impaired_production = "издаёт громкий шум."
+	message_impaired_production = "издаёт слабый шум."
 
 	message_miming = "задыхается."
-	message_muzzled = "издаёт громкий шум."
+	message_muzzled = "издаёт слабый шум."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -80,12 +80,12 @@
 /datum/emote/moan
 	key = "moan"
 
-	message_1p = "Вы стоните!"
+	message_1p = "Вы стонете!"
 	message_3p = "стонет!"
 
 	message_impaired_production = "тихо стонет."
 
-	message_miming = "кажется, что стонет!"
+	message_miming = "изображает, что стонет!"
 	message_muzzled = "тихо стонет!"
 
 	message_type = SHOWMSG_AUDIO
@@ -94,7 +94,7 @@
 	blocklist_unintentional_traits = list(TRAIT_EMOTIONLESS)
 
 /datum/emote/moan/get_impaired_msg(mob/user)
-	return "открывает [THEIR_RU(user)] рот широко"
+	return "широко открывает [THEIR_RU(user)] рот"
 
 
 /datum/emote/cough
@@ -103,7 +103,7 @@
 	message_1p = "Вы кашляете."
 	message_3p = "кашляет."
 
-	message_impaired_production = "сильные спазмы!"
+	message_impaired_production = "содрогается в спазме!"
 
 	message_miming = "изображает кашель."
 	message_muzzled = "пытается покашлять."
