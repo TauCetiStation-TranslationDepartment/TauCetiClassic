@@ -135,7 +135,7 @@ var/global/list/emotes_for_emote_panel // for custom emote panel
 /datum/emote/proc/can_emote(mob/user, intentional)
 	if(!check_cooldown(user.next_emote_use, intentional))
 		if(intentional)
-			to_chat(user, "<span class='notice'>Вы не можете так сильно проявлять эмоции, оставь это в покое.</span>")
+			to_chat(user, "<span class='notice'>Вы не можете использовать эмоции так часто, передохните.</span>")
 		return FALSE
 
 	if(!isnull(required_stat) && user.stat > required_stat)

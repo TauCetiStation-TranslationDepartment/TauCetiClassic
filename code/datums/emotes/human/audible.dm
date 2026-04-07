@@ -219,12 +219,12 @@
 /datum/emote/human/choke
 	key = "choke"
 
-	message_1p = "Вы давитесь."
-	message_3p = "давится."
+	message_1p = "Вы задыхаетесь."
+	message_3p = "задыхается."
 
 	message_impaired_production = "издаёт слабый шум."
 
-	message_miming = "изображает асфиксию."
+	message_miming = "задыхается."
 	message_muzzled = "издаёт слабый шум."
 
 	message_type = SHOWMSG_AUDIO
