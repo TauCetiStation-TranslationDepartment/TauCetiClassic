@@ -80,7 +80,7 @@
 	blocklist_traits = list(ELEMENT_TRAIT_ZOMBIE)
 
 /datum/emote/shake/get_emote_message_3p(mob/user)
-	return "качает [THEIR_RU(user)] головой."
+	return "качает головой."
 
 
 /datum/emote/twitch
