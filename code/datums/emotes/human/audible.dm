@@ -7,7 +7,7 @@
 	message_impaired_production = "тихо посмеивается."
 
 	message_miming = "изображает смех."
-	message_muzzled = "слегка посмеивается."
+	message_muzzled = "издаёт сдавленный смех."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -43,7 +43,7 @@
 	message_impaired_production = "слегка улыбается и тихо хихикает."
 
 	message_miming = "изображает хихикание."
-	message_muzzled = "слегка хихикает."
+	message_muzzled = "издаёт сдавленное хихикание."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -96,10 +96,10 @@
 	message_1p = "Вы стонете."
 	message_3p = "стонет."
 
-	message_impaired_production = "корчится и тихо пристанывает."
+	message_impaired_production = "корчится и тихо постанывает."
 
 	message_miming = "изображает боль"
-	message_muzzled = "издаёт слабый шум"
+	message_muzzled = "издаёт сдавленный шум"
 
 	message_type = SHOWMSG_AUDIO
 
@@ -109,7 +109,7 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_PAIN)
 
 /datum/emote/human/groan/get_impaired_msg(mob/user)
-	return "слегка приоткрывает [THEIR_RU(user)] рот."
+	return "приоткрывает [THEIR_RU(user)] рот."
 
 /datum/emote/human/groan/get_sound(mob/living/carbon/human/user, intentional)
 	var/static/list/grunt_by_gender_species = list(
@@ -140,7 +140,7 @@
 	message_1p = "Вы кричите!"
 	message_3p = "кричит!"
 
-	message_impaired_production = "мучаясь кривит лицо!"
+	message_impaired_production = "мучаясь, кривит лицо!"
 
 	message_miming = "изображает крик!"
 	message_muzzled = "издаёт громкое мычание!"
@@ -203,7 +203,7 @@
 	message_impaired_production = "издаёт слаыбй шум."
 
 	message_miming = "изображает икоту."
-	message_muzzled = "издаёт слабый шум."
+	message_muzzled = "издаёт сдавленный звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -222,10 +222,10 @@
 	message_1p = "Вы задыхаетесь."
 	message_3p = "задыхается."
 
-	message_impaired_production = "издаёт слабый шум."
+	message_impaired_production = "издаёт сдавленный звук."
 
-	message_miming = "задыхается."
-	message_muzzled = "издаёт слабый шум."
+	message_miming = "изображает удушье."
+	message_muzzled = "издаёт сдавленный звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -241,12 +241,12 @@
 /datum/emote/human/snore
 	key = "snore"
 
-	message_1p = "Вы храпите."
-	message_3p = "храпит."
+	message_1p = "Вы сопите."
+	message_3p = "сопит."
 
 	message_impaired_production = "издаёт звук."
 
-	message_miming = "изображает храпение."
+	message_miming = "изображает сопение."
 	message_muzzled = "издаёт звук."
 
 	message_type = SHOWMSG_AUDIO
@@ -269,7 +269,7 @@
 	message_impaired_reception = "принюхивается."
 
 	message_miming = "принюхивается."
-	message_muzzled = "издаёт слабый шум."
+	message_muzzled = "издаёт сдавленный звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -306,8 +306,8 @@
 	message_impaired_production = "яростно втягивает воздух!"
 	message_impaired_reception = "яростно втягивает воздух!"
 
-	message_miming = "выглядит так, будто задыхается!"
-	message_muzzled = "издаёт слабый шум."
+	message_miming = "изображает удушье!"
+	message_muzzled = "издаёт сдавленный звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -327,10 +327,10 @@
 	message_1p = "Вы вздохнули."
 	message_3p = "вздыхает."
 
-	message_impaired_production = "издаёт слабый шум."
+	message_impaired_production = "издаёт сдавленный звук."
 
 	message_miming = "изображает вздох."
-	message_muzzled = "издаёт слабый шум."
+	message_muzzled = "издаёт сдавленный звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -349,7 +349,7 @@
 	message_1p = "Вы бормочете."
 	message_3p = "бормочет."
 
-	message_impaired_production = "издаёт слабый шум."
+	message_impaired_production = "издаёт сдавленный звук."
 
 	message_miming = "изображает вздох."
 	message_muzzled = "раздражается!"
@@ -366,12 +366,12 @@
 	key = "hmm"
 
 	message_1p = "Вы задумались..."
-	message_3p = "о чём-то задумался..."
+	message_3p = "о чём-то задумчиво размышляет..."
 
 	message_impaired_production = "о чём-то задумался"
 
 	message_miming = "изображает из себя философа"
-	message_muzzled = "тихо бормочет..."
+	message_muzzled = "невнятно бормочет..."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -414,10 +414,10 @@
 	message_1p = "Вы взволнованно бормочете!"
 	message_3p = "взволнованно о чём-то бормочет."
 
-	message_impaired_production = "взволнованно бормочит!"
+	message_impaired_production = "взволнованно бормочет!"
 
 	message_miming = "с удивлением поднимает бровь!"
-	message_muzzled = "активно что-то пытается пробормотать!"
+	message_muzzled = "издаёт сдавленное, но взволнованное бормотание!"
 
 	message_type = SHOWMSG_AUDIO
 
@@ -441,7 +441,7 @@
 	message_impaired_reception = "восторженно кричит!"
 
 	message_miming = "изображает восторг!"
-	message_muzzled = "выглядит взволнованным."
+	message_muzzled = "выглядит взволнованно..."
 
 	message_type = SHOWMSG_AUDIO
 

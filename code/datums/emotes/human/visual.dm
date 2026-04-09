@@ -89,7 +89,7 @@
 	key = "frown"
 
 	message_1p = "Вы хмуритесь."
-	message_3p = "хмуриться."
+	message_3p = "хмурится."
 
 	message_type = SHOWMSG_VISUAL
 

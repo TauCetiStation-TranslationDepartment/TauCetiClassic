@@ -98,7 +98,7 @@
 /datum/emote/human/wave
 	key = "wave"
 
-	message_1p = "Вы машете своей рукой."
+	message_1p = "Вы машете рукой."
 	message_3p = "машет рукой."
 
 	message_type = SHOWMSG_VISUAL
