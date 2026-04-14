@@ -561,7 +561,7 @@ var/global/list/admin_verbs_hideable = list(
 	reason = sanitize(reason)
 
 	if(C)
-		to_chat(C, "<span class='alert'><span class='reallybig bold'>You have been formally warned by an administrator.</span><br>Reason: [reason].</span>")
+		to_chat(C, "<span class='alert'><span class='reallybig bold'>Вы получили предупрежедние от Администратора.</span><br>Причина: [reason].</span>")
 
 	log_admin("[src.key] has warned [warned_ckey] with reason: [reason]")
 	message_admins("[key_name_admin(src)] has warned [C ? key_name_admin(C) : warned_ckey] with reason: [reason].")
