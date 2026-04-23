@@ -1,8 +1,8 @@
 /datum/emote/robot/beep
 	key = "beep"
 
-	message_1p = "Вы издаёте биип."
-	message_3p = "издаёт биип."
+	message_1p = "Вы издаёте би-и-ип."
+	message_3p = "издаёт би-и-ип."
 
 	message_impaired_production = "издаёт слабый звук."
 	message_impaired_reception = "мерцает."

@@ -16,7 +16,7 @@
 	message_1p = "Вы зеваете."
 	message_3p = "зевает."
 
-	message_impaired_reception = "Вы слышите как кто-то зевает."
+	message_impaired_reception = "Вы слышите, как кто-то зевает."
 
 	message_type = SHOWMSG_VISUAL
 

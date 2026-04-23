@@ -4,7 +4,7 @@
 	message_1p = "Вы хнычите."
 	message_3p = "грустно хнычет."
 
-	message_muzzled = "сильно трясет и издаёт очень слабый звук."
+	message_muzzled = "сильно извивается, издавая едва слышимый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -17,7 +17,7 @@
 	message_1p = "Вы рычите."
 	message_3p = "рычит как маленький хищник."
 
-	message_muzzled = "сильно трясет и издаёт очень слабый звук."
+	message_muzzled = "сильно извивается, издавая едва слышимый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -30,7 +30,7 @@
 	message_1p = "Вы шипите."
 	message_3p = "тихо шипит."
 
-	message_muzzled = "сильно трясет и издаёт очень слабый звук."
+	message_muzzled = "сильно извивается, издавая едва слышимый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -43,7 +43,7 @@
 	message_1p = "Вы угрожающе рычите."
 	message_3p = "тихо угрожающе рычит."
 
-	message_muzzled = "сильно трясет и издаёт очень слабый звук."
+	message_muzzled = "сильно извивается, издавая едва слышимый звук."
 
 	message_type = SHOWMSG_AUDIO
 

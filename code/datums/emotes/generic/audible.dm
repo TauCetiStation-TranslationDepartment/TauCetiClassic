@@ -8,7 +8,7 @@
 	message_impaired_reception = "делает печальное лицо."
 
 	message_miming = "хнычет."
-	message_muzzled = "издаёт слабый шум."
+	message_muzzled = "издаёт сдавленный звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -32,7 +32,7 @@
 	required_stat = CONSCIOUS
 
 /datum/emote/roar/get_impaired_msg(mob/user)
-	return "открывает [THEIR_RU(user)] рот широко и страшно!"
+	return "пугающе разевает рот!"
 
 
 /datum/emote/gasp
@@ -41,8 +41,8 @@
 	message_1p = "Вы дышите с трудом!"
 	message_3p = "дышит с трудом!"
 
-	message_impaired_production = "яростно втягивает воздух!"
-	message_impaired_reception = "яростно втягивает воздух!"
+	message_impaired_production = "жадно втягивает воздух!"
+	message_impaired_reception = "жадно втягивает воздух!"
 
 	message_miming = "изображает удушье!"
 	message_muzzled = "издаёт сдавленный звук."

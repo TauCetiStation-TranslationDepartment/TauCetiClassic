@@ -4,7 +4,7 @@
 	message_1p = "Вы хлопаете."
 	message_3p = "хлопает."
 
-	message_impaired_reception = "Вы слышите как кто-то хлопает."
+	message_impaired_reception = "Вы слышите, как кто-то хлопает."
 
 	message_type = SHOWMSG_VISUAL
 
