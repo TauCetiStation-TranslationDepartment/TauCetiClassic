@@ -182,7 +182,7 @@ var/global/list/emotes_for_emote_panel // for custom emote panel
 			var/obj/item/organ/external/BP = H.get_bodypart(zone)
 			if(!BP)
 				if(intentional)
-					to_chat(H, "<span class='notice'>Вы не можете выполнить эту эмоцию без [parse_zone_ru(zone)]</span>")
+					to_chat(H, "<span class='notice'>Вы не можете выполнить эту эмоцию без [parse_zone_ru_genitive(zone)]</span>")
 				return FALSE
 
 	return TRUE

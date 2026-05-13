@@ -16,7 +16,7 @@
 	required_stat = CONSCIOUS
 
 /datum/emote/human/laugh/get_impaired_msg(mob/user)
-	return "открывает и закрывает [THEIR_RU(user)] рот, улыбаясь."
+	return "открывает и закрывает свой рот, улыбаясь."
 
 /datum/emote/human/laugh/get_sound(mob/living/carbon/human/user, intentional)
 	var/static/list/laugh_by_gender_species = list(
@@ -50,7 +50,7 @@
 	required_stat = CONSCIOUS
 
 /datum/emote/human/giggle/get_impaired_msg(mob/user)
-	return "открывает и закрывает слегка [THEIR_RU(user)] рот, улыбаясь."
+	return "открывает и закрывает слегка свой рот, улыбаясь."
 
 /datum/emote/human/grunt
 	key = "grunt"
@@ -71,7 +71,7 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_PAIN)
 
 /datum/emote/human/grunt/get_impaired_msg(mob/user)
-	return "сжал [THEIR_RU(user)] зубы."
+	return "стиснул свои зубы."
 
 /datum/emote/human/grunt/get_sound(mob/living/carbon/human/user, intentional)
 	var/static/list/grunt_by_gender_species = list(
@@ -109,7 +109,7 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_PAIN)
 
 /datum/emote/human/groan/get_impaired_msg(mob/user)
-	return "приоткрывает [THEIR_RU(user)] рот."
+	return "приоткрывает свой рот."
 
 /datum/emote/human/groan/get_sound(mob/living/carbon/human/user, intentional)
 	var/static/list/grunt_by_gender_species = list(
@@ -140,7 +140,7 @@
 	message_1p = "Вы кричите!"
 	message_3p = "кричит!"
 
-	message_impaired_production = "мучаясь, кривит лицо!"
+	message_impaired_production = "кривит лицо в муках!"
 
 	message_miming = "изображает крик!"
 	message_muzzled = "издаёт громкое мычание!"
@@ -153,7 +153,7 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_PAIN)
 
 /datum/emote/human/scream/get_impaired_msg(mob/user)
-	return "открывает [THEIR_RU(user)] рот как рыбка хватающая ртом воздух!"
+	return "открывает свой рот как рыбка хватающая ртом воздух!"
 
 /datum/emote/human/scream/get_sound(mob/living/carbon/human/user, intentional)
 	var/static/list/scream_by_gender_species = list(
@@ -188,7 +188,7 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_BREATHE)
 
 /datum/emote/human/cough/get_impaired_msg(mob/user)
-	return "дергается [THEIR_RU(user)] лицом вперед, как [THEY_RU(user)] открывает и закрывает [THEIR_RU(user)] рот!"
+	return "дергается своим лицом вперед, открывая и закрывая свой рот!"
 
 /datum/emote/human/cough/get_sound(mob/living/carbon/human/user, intentional)
 	return get_sound_by_voice(user, SOUNDIN_MBCOUGH, SOUNDIN_FBCOUGH)
@@ -213,7 +213,7 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_BREATHE)
 
 /datum/emote/human/hiccup/get_impaired_msg(mob/user)
-	return "внезапно у [THEM2_RU(user)] начинаются спазмы когда [THEY_RU(user)] открывает рот."
+	return "неожиданно содрогается, открыв свой рот."
 
 
 /datum/emote/human/choke
@@ -236,7 +236,7 @@
 	cloud = "cloud-gasp"
 
 /datum/emote/human/choke/get_impaired_msg(mob/user)
-	return "отчаянно хватается за [THEIR_RU(user)] горло!"
+	return "отчаянно хватается за своё горло!"
 
 /datum/emote/human/snore
 	key = "snore"
@@ -255,7 +255,7 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_BREATHE)
 
 /datum/emote/human/snore/get_impaired_msg(mob/user)
-	return "открывает [THEIR_RU(user)] рот широко, чтобы сделать вдох."
+	return "открывает свой рот широко, чтобы сделать вдох."
 
 
 // TO-DO: make so intentional sniffing reveals how a reagent solution held in hand smells?
@@ -338,7 +338,7 @@
 	blocklist_unintentional_traits = list(TRAIT_EMOTIONLESS)
 
 /datum/emote/human/sigh/get_impaired_msg(mob/user)
-	return "открывает [THEIR_RU(user)] рот."
+	return "открывает свой рот."
 
 /datum/emote/human/sigh/get_sound(mob/living/carbon/human/user, intentional)
 	return get_sound_by_voice(user, SOUNDIN_SIGH_MALE, SOUNDIN_SIGH_FEMALE)
@@ -380,7 +380,7 @@
 	required_stat = CONSCIOUS
 
 /datum/emote/human/hmm_think/get_impaired_msg(mob/user)
-	return "задумчиво потирает [THEIR_RU(user)] подбородок..."
+	return "задумчиво потирает свой подбородок..."
 
 /datum/emote/human/hmm_think/get_sound(mob/living/carbon/human/user, intentional)
 	return get_sound_by_voice(user, SOUNDIN_HMM_THINK_MALE, SOUNDIN_HMM_THINK_FEMALE)
@@ -403,7 +403,7 @@
 	required_stat = CONSCIOUS
 
 /datum/emote/human/hmm_question/get_impaired_msg(mob/user)
-	return "вопросительно приподнимает [THEIR_RU(user)] брови..?"
+	return "вопросительно приподнимает свои брови..?"
 
 /datum/emote/human/hmm_question/get_sound(mob/living/carbon/human/user, intentional)
 	return get_sound_by_voice(user, SOUNDIN_HMM_QUESTION_MALE, SOUNDIN_HMM_QUESTION_FEMALE)
@@ -426,7 +426,7 @@
 	required_stat = CONSCIOUS
 
 /datum/emote/human/hmm_excited/get_impaired_msg(mob/user)
-	return "взволнованно приподнимает [THEIR_RU(user)] брови!"
+	return "взволнованно приподнимает свои брови!"
 
 /datum/emote/human/hmm_excited/get_sound(mob/living/carbon/human/user, intentional)
 	return get_sound_by_voice(user, SOUNDIN_HMM_EXCLAIM_MALE, SOUNDIN_HMM_EXCLAIM_FEMALE)

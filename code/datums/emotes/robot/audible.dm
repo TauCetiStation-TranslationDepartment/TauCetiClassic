@@ -124,8 +124,8 @@
 /datum/emote/robot/scary
 	key = "scary"
 
-	message_1p = "Вы эмитируете обескураживающий звук."
-	message_3p = "эмитирует обескураживающий звук."
+	message_1p = "Вы имитируете обескураживающий звук."
+	message_3p = "имитирует обескураживающий звук."
 
 	message_impaired_production = "издаёт звуки."
 	message_impaired_reception = "мерцает."

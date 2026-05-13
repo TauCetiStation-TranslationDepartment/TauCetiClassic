@@ -74,7 +74,7 @@
 	cloud = "cloud-gasp"
 
 /datum/emote/choke/get_impaired_msg(mob/user)
-	return "отчаянно хватается за [THEIR_RU(user)] горло!"
+	return "отчаянно хватается за своё горло!"
 
 
 /datum/emote/moan
@@ -94,7 +94,7 @@
 	blocklist_unintentional_traits = list(TRAIT_EMOTIONLESS)
 
 /datum/emote/moan/get_impaired_msg(mob/user)
-	return "широко открывает [THEIR_RU(user)] рот"
+	return "широко открывает свой рот"
 
 
 /datum/emote/cough
@@ -112,4 +112,4 @@
 	blocklist_unintentional_traits = list(TRAIT_NO_BREATHE)
 
 /datum/emote/cough/get_impaired_msg(mob/user)
-	return "дергается [THEIR_RU(user)] лицом вперед, как [THEY_RU(user)] открывает и закрывает [THEIR_RU(user)] рот!"
+	return "дергается своим лицом вперед, открывая и закрывая свой рот!"

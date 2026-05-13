@@ -49,7 +49,7 @@
 /datum/emote/eyebrow
 	key = "eyebrow"
 
-	message_1p = "Вы поднимаете бровь."
+	message_1p = "Вы приподнимаете бровь."
 	message_3p = "поднимает бровь."
 
 	message_type = SHOWMSG_VISUAL

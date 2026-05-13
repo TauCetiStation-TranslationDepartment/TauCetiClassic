@@ -100,7 +100,7 @@
 /datum/emote/human/eyebrow
 	key = "eyebrow"
 
-	message_1p = "Вы поднимаете бровь."
+	message_1p = "Вы приподнимаете бровь."
 	message_3p = "поднимает бровь."
 
 	message_type = SHOWMSG_VISUAL
@@ -146,7 +146,7 @@
 	blocklist_unintentional_traits = list(ELEMENT_TRAIT_ZOMBIE)
 
 /datum/emote/human/shake/get_emote_message_3p(mob/living/carbon/human/user)
-	return "качает [THEIR_RU(user)] головой."
+	return "качает своей головой."
 
 
 /datum/emote/human/twitch
