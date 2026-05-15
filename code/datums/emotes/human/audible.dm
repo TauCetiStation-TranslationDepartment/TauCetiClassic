@@ -317,11 +317,11 @@
 /datum/emote/human/gasp
 	key = "gasp"
 
-	message_1p = "Вы дышите с трудом!"
-	message_3p = "дышит с трудом!"
+	message_1p = "Вы ловите ртом воздух с трудом!"
+	message_3p = "жадно ловит ртом воздух!"
 
-	message_impaired_production = "яростно втягивает воздух!"
-	message_impaired_reception = "яростно втягивает воздух!"
+	message_impaired_production = "жадно втягивает воздух!"
+	message_impaired_reception = "жадно втягивает воздух!"
 
 	message_miming = "изображает удушье!"
 	message_muzzled = "издаёт сдавленный звук."
